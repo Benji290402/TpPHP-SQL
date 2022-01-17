@@ -123,7 +123,7 @@ CREATE TABLE order_detail(
    updateAt DATETIME,
    PRIMARY KEY(id_product, id_order),
    FOREIGN KEY(id_product) REFERENCES Product(id_product),
-   FOREIGN KEY(id_order) REFERENCES _order_(id_order)
+   FOREIGN KEY(id_order) REFERENCES `order`(id_order)
 );
 
 CREATE TABLE tag_product(
@@ -137,8 +137,8 @@ CREATE TABLE tag_product(
 CREATE TABLE like_product(
    id_user BIGINT,
    id_product BIGINT,
-   _like_ LOGICAL,
-   dislike LOGICAL,
+   `like` BOOLEAN,
+   dislike BOOLEAN,
    PRIMARY KEY(id_user, id_product),
    FOREIGN KEY(id_user) REFERENCES Users(id_user),
    FOREIGN KEY(id_product) REFERENCES Product(id_product)
