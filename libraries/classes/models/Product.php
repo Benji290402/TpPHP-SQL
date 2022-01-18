@@ -22,13 +22,17 @@ class Product extends Model
      *
      * @return array
      */
-    public function findProductByCategory(int $id_category): array
+    public function findProductByCategory(int $id_category = null)
     {
         // 2. On récupère les produits
-        $query = $this->pdo->prepare("SELECT * FROM product WHERE id_category = :id ORDER BY name ASC");
+        $query = $this->pdo->prepare("SELECT * FROM product WHERE id_category like :id ORDER BY name ASC");
         $query->execute(['id' => $id_category]);
         $produits = $query->fetchAll();
 
+       //$sql = "SELECT * FROM product WHERE id_category like :id_category ORDER BY name ASC";
+       //$statement = $this->pdo->prepare($sql);
+       //$statement->execute(['id_category' => $id_category]);
+       //return $statement->fetchAll();
         // 3. On retourne les produits
         return $produits;
     }
