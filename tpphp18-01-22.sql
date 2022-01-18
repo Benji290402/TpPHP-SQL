@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 18 jan. 2022 à 13:56
+-- Généré le : mar. 18 jan. 2022 à 14:15
 -- Version du serveur : 10.4.19-MariaDB
 -- Version de PHP : 8.0.7
 
@@ -32,7 +32,7 @@ USE `tpphp`;
 
 DROP TABLE IF EXISTS `address`;
 CREATE TABLE `address` (
-  `id_adresse` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `number` int(11) DEFAULT NULL,
   `street` varchar(50) DEFAULT NULL,
   `postal` varchar(50) DEFAULT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE `address` (
 -- Déchargement des données de la table `address`
 --
 
-INSERT INTO `address` (`id_adresse`, `number`, `street`, `postal`, `city`, `country`, `id_user`) VALUES
+INSERT INTO `address` (`id`, `number`, `street`, `postal`, `city`, `country`, `id_user`) VALUES
 (1, 729, 'Bayside', NULL, 'Thị Trấn Việt Quang', 'Vietnam', 1),
 (2, 3960, 'Oxford', NULL, 'Xinqiaohe', 'China', 2),
 (3, 7, 'Bowman', '4760-743', 'Vilarinho das Cambas', 'Portugal', 3),
@@ -901,7 +901,7 @@ INSERT INTO `address` (`id_adresse`, `number`, `street`, `postal`, `city`, `coun
 (853, 85, 'Reinke', NULL, 'Chongmin', 'China', 853),
 (854, 82409, 'Barby', NULL, 'Changgai', 'China', 854),
 (855, 524, 'Thackeray', '52223', 'Raša', 'Croatia', 855);
-INSERT INTO `address` (`id_adresse`, `number`, `street`, `postal`, `city`, `country`, `id_user`) VALUES
+INSERT INTO `address` (`id`, `number`, `street`, `postal`, `city`, `country`, `id_user`) VALUES
 (856, 1, 'Leroy', '3105', 'Diamante', 'Argentina', 856),
 (857, 1, 'South', '3070-125', 'Ermida', 'Portugal', 857),
 (858, 68, 'Burrows', NULL, 'Tambaksumur', 'Indonesia', 858),
@@ -1056,7 +1056,7 @@ INSERT INTO `address` (`id_adresse`, `number`, `street`, `postal`, `city`, `coun
 
 DROP TABLE IF EXISTS `category`;
 CREATE TABLE `category` (
-  `id_category` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `id_category_1` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1065,7 +1065,7 @@ CREATE TABLE `category` (
 -- Déchargement des données de la table `category`
 --
 
-INSERT INTO `category` (`id_category`, `name`, `id_category_1`) VALUES
+INSERT INTO `category` (`id`, `name`, `id_category_1`) VALUES
 (1, 'dapibus', NULL),
 (2, 'non', NULL),
 (3, 'sagittis', NULL),
@@ -1169,7 +1169,7 @@ INSERT INTO `category` (`id_category`, `name`, `id_category_1`) VALUES
 
 DROP TABLE IF EXISTS `commentary`;
 CREATE TABLE `commentary` (
-  `id_comment` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL,
   `comment` text DEFAULT NULL,
   `id_user` bigint(20) NOT NULL,
   `id_product` bigint(20) NOT NULL
@@ -1179,7 +1179,7 @@ CREATE TABLE `commentary` (
 -- Déchargement des données de la table `commentary`
 --
 
-INSERT INTO `commentary` (`id_comment`, `comment`, `id_user`, `id_product`) VALUES
+INSERT INTO `commentary` (`id`, `comment`, `id_user`, `id_product`) VALUES
 (1, 'Nullam varius. Nulla facilisi.', 421, 1581),
 (2, 'Integer ac neque. Duis bibendum. Morbi non quam nec dui luctus rutrum.', 291, 1306),
 (3, 'Quisque porta volutpat erat.', 974, 1447),
@@ -1663,7 +1663,7 @@ INSERT INTO `commentary` (`id_comment`, `comment`, `id_user`, `id_product`) VALU
 (481, 'In sagittis dui vel nisl.', 778, 45),
 (482, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue.', 513, 833),
 (483, 'Donec ut mauris eget massa tempor convallis.', 426, 1543);
-INSERT INTO `commentary` (`id_comment`, `comment`, `id_user`, `id_product`) VALUES
+INSERT INTO `commentary` (`id`, `comment`, `id_user`, `id_product`) VALUES
 (484, 'Aenean auctor gravida sem.', 984, 543),
 (485, 'Suspendisse ornare consequat lectus.', 915, 320),
 (486, 'Nulla tellus. In sagittis dui vel nisl.', 727, 62),
@@ -2159,7 +2159,7 @@ INSERT INTO `commentary` (`id_comment`, `comment`, `id_user`, `id_product`) VALU
 (976, 'Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.', 366, 1162),
 (977, 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante.', 464, 1706),
 (978, 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa.', 653, 1219);
-INSERT INTO `commentary` (`id_comment`, `comment`, `id_user`, `id_product`) VALUES
+INSERT INTO `commentary` (`id`, `comment`, `id_user`, `id_product`) VALUES
 (979, 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 501, 1282),
 (980, 'Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh.', 650, 586),
 (981, 'Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc.', 684, 1413),
@@ -2644,9 +2644,9 @@ INSERT INTO `commentary` (`id_comment`, `comment`, `id_user`, `id_product`) VALU
 (1460, 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.', 555, 410),
 (1461, 'Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti.', 270, 1999),
 (1462, 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis.', 173, 77),
-(1463, 'Morbi non quam nec dui luctus rutrum.', 540, 1254);
-INSERT INTO `commentary` (`id_comment`, `comment`, `id_user`, `id_product`) VALUES
-(1464, 'Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla.', 947, 1416),
+(1463, 'Morbi non quam nec dui luctus rutrum.', 540, 1254),
+(1464, 'Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla.', 947, 1416);
+INSERT INTO `commentary` (`id`, `comment`, `id_user`, `id_product`) VALUES
 (1465, 'Maecenas pulvinar lobortis est. Phasellus sit amet erat.', 45, 508),
 (1466, 'Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.', 769, 1470),
 (1467, 'Ut tellus.', 365, 890),
@@ -3135,10 +3135,10 @@ INSERT INTO `commentary` (`id_comment`, `comment`, `id_user`, `id_product`) VALU
 (1950, 'Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc.', 566, 1957),
 (1951, 'Cras in purus eu magna vulputate luctus.', 881, 941),
 (1952, 'Donec quis orci eget orci vehicula condimentum.', 821, 12),
-(1953, 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.', 725, 747);
-INSERT INTO `commentary` (`id_comment`, `comment`, `id_user`, `id_product`) VALUES
+(1953, 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.', 725, 747),
 (1954, 'Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.', 431, 771),
-(1955, 'Phasellus id sapien in sapien iaculis congue.', 812, 1058),
+(1955, 'Phasellus id sapien in sapien iaculis congue.', 812, 1058);
+INSERT INTO `commentary` (`id`, `comment`, `id_user`, `id_product`) VALUES
 (1956, 'Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam.', 919, 1113),
 (1957, 'Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla.', 878, 20),
 (1958, 'Etiam justo. Etiam pretium iaculis justo.', 216, 71),
@@ -3617,9 +3617,9 @@ INSERT INTO `commentary` (`id_comment`, `comment`, `id_user`, `id_product`) VALU
 (2431, 'Praesent blandit. Nam nulla.', 546, 1725),
 (2432, 'Proin risus.', 482, 499),
 (2433, 'Curabitur convallis.', 306, 686),
-(2434, 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.', 605, 972);
-INSERT INTO `commentary` (`id_comment`, `comment`, `id_user`, `id_product`) VALUES
-(2435, 'Ut at dolor quis odio consequat varius. Integer ac leo.', 337, 319),
+(2434, 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.', 605, 972),
+(2435, 'Ut at dolor quis odio consequat varius. Integer ac leo.', 337, 319);
+INSERT INTO `commentary` (`id`, `comment`, `id_user`, `id_product`) VALUES
 (2436, 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique.', 488, 509),
 (2437, 'Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante.', 764, 765),
 (2438, 'Morbi non quam nec dui luctus rutrum.', 617, 707),
@@ -4113,10 +4113,10 @@ INSERT INTO `commentary` (`id_comment`, `comment`, `id_user`, `id_product`) VALU
 (2926, 'In congue.', 886, 1018),
 (2927, 'Curabitur gravida nisi at nibh.', 656, 787),
 (2928, 'Vivamus in felis eu sapien cursus vestibulum.', 82, 1606),
-(2929, 'Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien.', 519, 501);
-INSERT INTO `commentary` (`id_comment`, `comment`, `id_user`, `id_product`) VALUES
+(2929, 'Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien.', 519, 501),
 (2930, 'Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst.', 240, 1609),
-(2931, 'In congue.', 503, 367),
+(2931, 'In congue.', 503, 367);
+INSERT INTO `commentary` (`id`, `comment`, `id_user`, `id_product`) VALUES
 (2932, 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum.', 601, 311),
 (2933, 'Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl.', 886, 1823),
 (2934, 'Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 130, 1413),
@@ -8026,7 +8026,7 @@ INSERT INTO `like_product` (`id_user`, `id_product`, `like`) VALUES
 
 DROP TABLE IF EXISTS `media`;
 CREATE TABLE `media` (
-  `id_media` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL,
   `source` text DEFAULT NULL,
   `createdDate` datetime DEFAULT NULL,
   `updateAt` datetime DEFAULT NULL
@@ -8040,7 +8040,7 @@ CREATE TABLE `media` (
 
 DROP TABLE IF EXISTS `order`;
 CREATE TABLE `order` (
-  `id_order` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `createAt` datetime DEFAULT NULL,
   `updateAt` datetime DEFAULT NULL,
   `numero` varchar(50) DEFAULT NULL,
@@ -8071,7 +8071,7 @@ CREATE TABLE `order_detail` (
 
 DROP TABLE IF EXISTS `paiement`;
 CREATE TABLE `paiement` (
-  `id_payement` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL,
   `token` varchar(255) DEFAULT NULL,
   `methode` varchar(50) DEFAULT NULL,
   `status` varchar(50) DEFAULT NULL,
@@ -8088,7 +8088,7 @@ CREATE TABLE `paiement` (
 
 DROP TABLE IF EXISTS `product`;
 CREATE TABLE `product` (
-  `id_product` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL,
   `name` varchar(50) DEFAULT NULL,
   `price` decimal(15,2) DEFAULT NULL,
   `description` varchar(50) DEFAULT NULL,
@@ -8107,7 +8107,7 @@ CREATE TABLE `product` (
 -- Déchargement des données de la table `product`
 --
 
-INSERT INTO `product` (`id_product`, `name`, `price`, `description`, `color`, `size`, `stock`, `promo`, `fidelityPoint`, `createAt`, `updateAt`, `id_category`, `id_user`) VALUES
+INSERT INTO `product` (`id`, `name`, `price`, `description`, `color`, `size`, `stock`, `promo`, `fidelityPoint`, `createAt`, `updateAt`, `id_category`, `id_user`) VALUES
 (1, 'Pie Filling - Apple', '87.39', 'Morbi non lectus. Aliquam sit amet diam in magna b', 'Mauv', 'L', 64, '5577817005', 40, '2021-12-25 00:00:00', '2021-01-07 00:00:00', 131, 52),
 (2, 'Cheese - Brie, Cups 125g', '53.99', 'Praesent blandit. Nam nulla. Integer pede justo, l', 'Maroon', 'L', 10, '7720463870', 29, '2021-05-11 00:00:00', '2021-07-09 00:00:00', 11, 69),
 (3, 'Apple - Delicious, Red', '26.79', 'Quisque porta volutpat erat. Quisque erat eros, vi', 'Blue', 'S', 41, '8481484008', 40, '2020-05-03 00:00:00', '2020-12-25 00:00:00', 68, 66),
@@ -8378,7 +8378,7 @@ INSERT INTO `product` (`id_product`, `name`, `price`, `description`, `color`, `s
 (268, 'Oil - Olive, Extra Virgin', '43.69', 'Duis bibendum. Morbi non quam nec dui luctus rutru', 'Yellow', 'L', 17, '7703653373', 21, '2020-07-17 00:00:00', '2020-05-26 00:00:00', 12, 99),
 (269, 'Marzipan 50/50', '55.48', 'Phasellus in felis. Donec semper sapien a libero. ', 'Green', 'L', 43, '9281244594', 15, '2021-06-24 00:00:00', '2021-02-22 00:00:00', 42, 69),
 (270, 'Tofu - Soft', '47.15', 'Mauris enim leo, rhoncus sed, vestibulum sit amet,', 'Goldenrod', 'M', 77, '5277456562', 27, '2021-01-30 00:00:00', '2020-08-29 00:00:00', 13, 79);
-INSERT INTO `product` (`id_product`, `name`, `price`, `description`, `color`, `size`, `stock`, `promo`, `fidelityPoint`, `createAt`, `updateAt`, `id_category`, `id_user`) VALUES
+INSERT INTO `product` (`id`, `name`, `price`, `description`, `color`, `size`, `stock`, `promo`, `fidelityPoint`, `createAt`, `updateAt`, `id_category`, `id_user`) VALUES
 (271, 'Longos - Penne With Pesto', '7.15', 'Etiam vel augue. Vestibulum rutrum rutrum neque. A', 'Pink', 'L', 78, '3022833598', 8, '2020-06-02 00:00:00', '2021-04-27 00:00:00', 59, 20),
 (272, 'Food Colouring - Pink', '15.50', 'Cras non velit nec nisi vulputate nonummy. Maecena', 'Fuscia', 'L', 66, '1007327383', 43, '2020-01-29 00:00:00', '2020-12-30 00:00:00', 15, 25),
 (273, 'Wine - White Cab Sauv.on', '28.17', 'Sed sagittis. Nam congue, risus semper porta volut', 'Mauv', 'XS', 71, '9004673679', 24, '2020-04-08 00:00:00', '2020-05-12 00:00:00', 15, 15),
@@ -8648,7 +8648,7 @@ INSERT INTO `product` (`id_product`, `name`, `price`, `description`, `color`, `s
 (537, 'Cranberries - Fresh', '15.48', 'Vestibulum ac est lacinia nisi venenatis tristique', 'Maroon', 'M', 10, '1454537027', 43, '2020-09-01 00:00:00', '2020-06-27 00:00:00', 128, 59),
 (538, 'Artichoke - Bottom, Canned', '102.76', 'Duis consequat dui nec nisi volutpat eleifend. Don', 'Red', 'XS', 13, '2782895737', 13, '2020-09-02 00:00:00', '2022-01-12 00:00:00', 146, 2),
 (539, 'Sardines', '22.61', 'Vestibulum ac est lacinia nisi venenatis tristique', 'Khaki', '2XL', 7, '6565938105', 27, '2021-01-08 00:00:00', '2020-10-14 00:00:00', 147, 33);
-INSERT INTO `product` (`id_product`, `name`, `price`, `description`, `color`, `size`, `stock`, `promo`, `fidelityPoint`, `createAt`, `updateAt`, `id_category`, `id_user`) VALUES
+INSERT INTO `product` (`id`, `name`, `price`, `description`, `color`, `size`, `stock`, `promo`, `fidelityPoint`, `createAt`, `updateAt`, `id_category`, `id_user`) VALUES
 (540, 'Coffee - Frthy Coffee Crisp', '60.70', 'Nulla ut erat id mauris vulputate elementum. Nulla', 'Indigo', 'L', 14, '2673824391', 21, '2020-05-15 00:00:00', '2020-07-06 00:00:00', 42, 4),
 (541, 'Wine - Jaboulet Cotes Du Rhone', '30.76', 'Morbi non lectus. Aliquam sit amet diam in magna b', 'Green', '3XL', 30, '1054973644', 23, '2020-07-23 00:00:00', '2021-03-23 00:00:00', 43, 95),
 (542, 'Garlic - Primerba, Paste', '29.43', 'Duis bibendum. Morbi non quam nec dui luctus rutru', 'Purple', '3XL', 10, '5146731225', 30, '2020-05-04 00:00:00', '2020-09-13 00:00:00', 20, 4),
@@ -8919,9 +8919,9 @@ INSERT INTO `product` (`id_product`, `name`, `price`, `description`, `color`, `s
 (807, 'Miso Paste White', '21.74', 'Integer tincidunt ante vel ipsum. Praesent blandit', 'Green', 'XS', 53, '4761352531', 49, '2021-03-26 00:00:00', '2020-04-15 00:00:00', 147, 100),
 (808, 'Duck - Breast', '56.65', 'Vestibulum ac est lacinia nisi venenatis tristique', 'Purple', 'M', 98, '4520653487', 33, '2020-08-17 00:00:00', '2022-01-10 00:00:00', 32, 84),
 (809, 'Soup Bowl Clear 8oz92008', '23.39', 'Maecenas tristique, est et tempus semper, est quam', 'Red', 'XL', 11, '6747042077', 43, '2021-12-03 00:00:00', '2021-10-20 00:00:00', 36, 79),
-(810, 'Eggplant Italian', '13.14', 'Mauris enim leo, rhoncus sed, vestibulum sit amet,', 'Orange', 'XS', 12, '0719041600', 7, '2021-09-03 00:00:00', '2020-12-04 00:00:00', 8, 39);
-INSERT INTO `product` (`id_product`, `name`, `price`, `description`, `color`, `size`, `stock`, `promo`, `fidelityPoint`, `createAt`, `updateAt`, `id_category`, `id_user`) VALUES
-(811, 'Lidsoupcont Rp12dn', '68.32', 'Vestibulum quam sapien, varius ut, blandit non, in', 'Pink', 'S', 39, '9015416826', 44, '2020-01-27 00:00:00', '2021-08-05 00:00:00', 30, 75),
+(810, 'Eggplant Italian', '13.14', 'Mauris enim leo, rhoncus sed, vestibulum sit amet,', 'Orange', 'XS', 12, '0719041600', 7, '2021-09-03 00:00:00', '2020-12-04 00:00:00', 8, 39),
+(811, 'Lidsoupcont Rp12dn', '68.32', 'Vestibulum quam sapien, varius ut, blandit non, in', 'Pink', 'S', 39, '9015416826', 44, '2020-01-27 00:00:00', '2021-08-05 00:00:00', 30, 75);
+INSERT INTO `product` (`id`, `name`, `price`, `description`, `color`, `size`, `stock`, `promo`, `fidelityPoint`, `createAt`, `updateAt`, `id_category`, `id_user`) VALUES
 (812, 'Veal - Insides Provini', '89.81', 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacu', 'Yellow', '2XL', 34, '4568955378', 49, '2021-01-12 00:00:00', '2020-10-12 00:00:00', 133, 21),
 (813, 'Nut - Hazelnut, Ground, Natural', '102.50', 'Fusce consequat. Nulla nisl. Nunc nisl.\r\n\r\nDuis bi', 'Puce', '3XL', 86, '2583827898', 42, '2021-03-13 00:00:00', '2021-12-03 00:00:00', 33, 56),
 (814, 'Flour - Bread', '30.19', 'Sed ante. Vivamus tortor. Duis mattis egestas metu', 'Green', 'L', 93, '3059782962', 29, '2020-07-29 00:00:00', '2020-07-30 00:00:00', 41, 21),
@@ -9190,9 +9190,9 @@ INSERT INTO `product` (`id_product`, `name`, `price`, `description`, `color`, `s
 (1077, 'Beer - Sleemans Cream Ale', '102.74', 'Proin interdum mauris non ligula pellentesque ultr', 'Fuscia', '3XL', 81, '9930426884', 15, '2021-08-07 00:00:00', '2021-08-08 00:00:00', 14, 55),
 (1078, 'Spinach - Baby', '25.46', 'Proin eu mi. Nulla ac enim. In tempor, turpis nec ', 'Green', 'XS', 31, '2250470065', 35, '2021-08-18 00:00:00', '2021-10-06 00:00:00', 4, 29),
 (1079, 'Brownies - Two Bite, Chocolate', '51.81', 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacu', 'Maroon', 'XL', 12, '8193828941', 12, '2021-02-13 00:00:00', '2021-05-29 00:00:00', 156, 52),
-(1080, 'Dried Cherries', '89.32', 'Pellentesque at nulla. Suspendisse potenti. Cras i', 'Puce', 'M', 98, '6515671776', 41, '2020-06-08 00:00:00', '2021-04-23 00:00:00', 126, 80);
-INSERT INTO `product` (`id_product`, `name`, `price`, `description`, `color`, `size`, `stock`, `promo`, `fidelityPoint`, `createAt`, `updateAt`, `id_category`, `id_user`) VALUES
-(1081, 'Sprouts - Baby Pea Tendrils', '17.86', 'Praesent id massa id nisl venenatis lacinia. Aenea', 'Teal', 'S', 76, '9386857987', 30, '2020-06-26 00:00:00', '2020-07-04 00:00:00', 10, 53),
+(1080, 'Dried Cherries', '89.32', 'Pellentesque at nulla. Suspendisse potenti. Cras i', 'Puce', 'M', 98, '6515671776', 41, '2020-06-08 00:00:00', '2021-04-23 00:00:00', 126, 80),
+(1081, 'Sprouts - Baby Pea Tendrils', '17.86', 'Praesent id massa id nisl venenatis lacinia. Aenea', 'Teal', 'S', 76, '9386857987', 30, '2020-06-26 00:00:00', '2020-07-04 00:00:00', 10, 53);
+INSERT INTO `product` (`id`, `name`, `price`, `description`, `color`, `size`, `stock`, `promo`, `fidelityPoint`, `createAt`, `updateAt`, `id_category`, `id_user`) VALUES
 (1082, 'Salmon Steak - Cohoe 6 Oz', '8.82', 'Pellentesque at nulla. Suspendisse potenti. Cras i', 'Purple', 'L', 34, '9917150250', 12, '2021-09-30 00:00:00', '2021-10-26 00:00:00', 127, 57),
 (1083, 'Cake Sheet Combo Party Pack', '56.33', 'Maecenas leo odio, condimentum id, luctus nec, mol', 'Crimson', '3XL', 30, '7494858334', 27, '2020-08-07 00:00:00', '2021-05-11 00:00:00', 154, 52),
 (1084, 'Beef - Tongue, Cooked', '20.37', 'Nullam porttitor lacus at turpis. Donec posuere me', 'Orange', 'XL', 38, '2484712073', 34, '2020-09-12 00:00:00', '2020-05-15 00:00:00', 59, 34),
@@ -9460,9 +9460,9 @@ INSERT INTO `product` (`id_product`, `name`, `price`, `description`, `color`, `s
 (1346, 'Ice - Clear, 300 Lb For Carving', '78.63', 'Duis bibendum, felis sed interdum venenatis, turpi', 'Red', 'S', 44, '2767121289', 26, '2022-01-08 00:00:00', '2021-08-03 00:00:00', 129, 98),
 (1347, 'Red Cod Fillets - 225g', '24.51', 'Aenean fermentum. Donec ut mauris eget massa tempo', 'Purple', 'S', 5, '8905205844', 38, '2020-07-02 00:00:00', '2020-07-10 00:00:00', 136, 75),
 (1348, 'Oranges - Navel, 72', '88.38', 'Vestibulum quam sapien, varius ut, blandit non, in', 'Maroon', '2XL', 25, '2652176951', 36, '2020-02-22 00:00:00', '2020-12-15 00:00:00', 3, 83),
-(1349, 'Salmon - Atlantic, No Skin', '36.41', 'Nullam porttitor lacus at turpis. Donec posuere me', 'Turquoise', '2XL', 38, '5966259429', 28, '2021-02-26 00:00:00', '2020-03-26 00:00:00', 31, 87);
-INSERT INTO `product` (`id_product`, `name`, `price`, `description`, `color`, `size`, `stock`, `promo`, `fidelityPoint`, `createAt`, `updateAt`, `id_category`, `id_user`) VALUES
-(1350, 'Parsley - Fresh', '10.23', 'Praesent id massa id nisl venenatis lacinia. Aenea', 'Khaki', 'XS', 51, '8008002263', 38, '2020-03-29 00:00:00', '2021-04-05 00:00:00', 61, 84),
+(1349, 'Salmon - Atlantic, No Skin', '36.41', 'Nullam porttitor lacus at turpis. Donec posuere me', 'Turquoise', '2XL', 38, '5966259429', 28, '2021-02-26 00:00:00', '2020-03-26 00:00:00', 31, 87),
+(1350, 'Parsley - Fresh', '10.23', 'Praesent id massa id nisl venenatis lacinia. Aenea', 'Khaki', 'XS', 51, '8008002263', 38, '2020-03-29 00:00:00', '2021-04-05 00:00:00', 61, 84);
+INSERT INTO `product` (`id`, `name`, `price`, `description`, `color`, `size`, `stock`, `promo`, `fidelityPoint`, `createAt`, `updateAt`, `id_category`, `id_user`) VALUES
 (1351, 'Sobe - Lizard Fuel', '6.24', 'Donec diam neque, vestibulum eget, vulputate ut, u', 'Teal', 'S', 8, '0006986714', 11, '2020-05-09 00:00:00', '2020-04-02 00:00:00', 139, 4),
 (1352, 'Wine - Magnotta, White', '97.28', 'Duis consequat dui nec nisi volutpat eleifend. Don', 'Blue', 'M', 80, '4293147470', 41, '2020-10-21 00:00:00', '2022-01-16 00:00:00', 13, 96),
 (1353, 'Wild Boar - Tenderloin', '100.58', 'Duis consequat dui nec nisi volutpat eleifend. Don', 'Green', 'L', 97, '2716855471', 47, '2021-10-12 00:00:00', '2020-09-17 00:00:00', 9, 67),
@@ -9729,9 +9729,9 @@ INSERT INTO `product` (`id_product`, `name`, `price`, `description`, `color`, `s
 (1614, 'Wine - Marlbourough Sauv Blanc', '38.09', 'Suspendisse potenti. In eleifend quam a odio. In h', 'Purple', 'M', 13, '4540085867', 30, '2020-05-01 00:00:00', '2020-11-03 00:00:00', 13, 48),
 (1615, 'Wine - White, Cooking', '35.70', 'Nam ultrices, libero non mattis pulvinar, nulla pe', 'Indigo', 'S', 50, '5567507100', 39, '2021-02-18 00:00:00', '2020-10-01 00:00:00', 146, 29),
 (1616, 'Muffin Hinge - 211n', '98.28', 'Phasellus in felis. Donec semper sapien a libero. ', 'Orange', 'XL', 64, '8953240581', 49, '2021-10-05 00:00:00', '2021-02-10 00:00:00', 39, 94),
-(1617, 'Pork - Liver', '67.31', 'Fusce consequat. Nulla nisl. Nunc nisl.\r\n\r\nDuis bi', 'Green', '2XL', 57, '6848763187', 45, '2020-03-24 00:00:00', '2021-05-30 00:00:00', 155, 52);
-INSERT INTO `product` (`id_product`, `name`, `price`, `description`, `color`, `size`, `stock`, `promo`, `fidelityPoint`, `createAt`, `updateAt`, `id_category`, `id_user`) VALUES
-(1618, 'Lemonade - Strawberry, 591 Ml', '27.35', 'Maecenas leo odio, condimentum id, luctus nec, mol', 'Blue', 'M', 18, '5020448605', 46, '2020-02-20 00:00:00', '2020-06-27 00:00:00', 15, 67),
+(1617, 'Pork - Liver', '67.31', 'Fusce consequat. Nulla nisl. Nunc nisl.\r\n\r\nDuis bi', 'Green', '2XL', 57, '6848763187', 45, '2020-03-24 00:00:00', '2021-05-30 00:00:00', 155, 52),
+(1618, 'Lemonade - Strawberry, 591 Ml', '27.35', 'Maecenas leo odio, condimentum id, luctus nec, mol', 'Blue', 'M', 18, '5020448605', 46, '2020-02-20 00:00:00', '2020-06-27 00:00:00', 15, 67);
+INSERT INTO `product` (`id`, `name`, `price`, `description`, `color`, `size`, `stock`, `promo`, `fidelityPoint`, `createAt`, `updateAt`, `id_category`, `id_user`) VALUES
 (1619, 'Beef - Ground Medium', '19.76', 'Morbi non lectus. Aliquam sit amet diam in magna b', 'Aquamarine', 'L', 37, '9107675550', 28, '2021-06-09 00:00:00', '2020-04-12 00:00:00', 142, 100),
 (1620, 'Plate Foam Laminated 9in Blk', '91.67', 'Maecenas ut massa quis augue luctus tincidunt. Nul', 'Orange', '2XL', 3, '2844708498', 8, '2021-10-11 00:00:00', '2021-11-27 00:00:00', 134, 52),
 (1621, 'Fish - Base, Bouillion', '19.02', 'Curabitur gravida nisi at nibh. In hac habitasse p', 'Blue', 'S', 76, '4859424700', 22, '2021-12-03 00:00:00', '2020-07-01 00:00:00', 142, 99),
@@ -9998,9 +9998,9 @@ INSERT INTO `product` (`id_product`, `name`, `price`, `description`, `color`, `s
 (1882, 'Cranberries - Frozen', '39.79', 'Curabitur gravida nisi at nibh. In hac habitasse p', 'Turquoise', 'M', 84, '8141127373', 18, '2021-03-30 00:00:00', '2020-03-24 00:00:00', 24, 33),
 (1883, 'Zucchini - Mini, Green', '89.65', 'Cras non velit nec nisi vulputate nonummy. Maecena', 'Teal', '3XL', 23, '4131832763', 31, '2020-09-04 00:00:00', '2020-10-22 00:00:00', 10, 80),
 (1884, 'Pear - Prickly', '84.87', 'Sed ante. Vivamus tortor. Duis mattis egestas metu', 'Red', 'S', 90, '4719998283', 34, '2021-10-24 00:00:00', '2021-12-31 00:00:00', 24, 60),
-(1885, 'Garlic', '30.51', 'Vestibulum quam sapien, varius ut, blandit non, in', 'Aquamarine', 'XL', 63, '2055861735', 42, '2020-07-30 00:00:00', '2021-10-02 00:00:00', 36, 78);
-INSERT INTO `product` (`id_product`, `name`, `price`, `description`, `color`, `size`, `stock`, `promo`, `fidelityPoint`, `createAt`, `updateAt`, `id_category`, `id_user`) VALUES
-(1886, 'Wine - Carmenere Casillero Del', '28.01', 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacu', 'Goldenrod', 'XL', 39, '7820821531', 36, '2020-10-20 00:00:00', '2020-09-15 00:00:00', 120, 87),
+(1885, 'Garlic', '30.51', 'Vestibulum quam sapien, varius ut, blandit non, in', 'Aquamarine', 'XL', 63, '2055861735', 42, '2020-07-30 00:00:00', '2021-10-02 00:00:00', 36, 78),
+(1886, 'Wine - Carmenere Casillero Del', '28.01', 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacu', 'Goldenrod', 'XL', 39, '7820821531', 36, '2020-10-20 00:00:00', '2020-09-15 00:00:00', 120, 87);
+INSERT INTO `product` (`id`, `name`, `price`, `description`, `color`, `size`, `stock`, `promo`, `fidelityPoint`, `createAt`, `updateAt`, `id_category`, `id_user`) VALUES
 (1887, 'Energy Drink', '61.45', 'Quisque id justo sit amet sapien dignissim vestibu', 'Purple', 'S', 31, '6995145526', 13, '2020-01-17 00:00:00', '2021-11-28 00:00:00', 46, 49),
 (1888, 'Mustard - Dijon', '28.17', 'Phasellus in felis. Donec semper sapien a libero. ', 'Crimson', 'M', 63, '2113354837', 15, '2020-03-13 00:00:00', '2020-09-24 00:00:00', 150, 61),
 (1889, 'Soup - Campbells, Cream Of', '46.19', 'Duis consequat dui nec nisi volutpat eleifend. Don', 'Maroon', 'M', 68, '8497285735', 19, '2020-12-24 00:00:00', '2020-10-23 00:00:00', 128, 6),
@@ -10136,7 +10136,7 @@ CREATE TABLE `product_media` (
 
 DROP TABLE IF EXISTS `tag`;
 CREATE TABLE `tag` (
-  `id_tag` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -10144,7 +10144,7 @@ CREATE TABLE `tag` (
 -- Déchargement des données de la table `tag`
 --
 
-INSERT INTO `tag` (`id_tag`, `name`) VALUES
+INSERT INTO `tag` (`id`, `name`) VALUES
 (41, 'a'),
 (7, 'ac'),
 (89, 'acs'),
@@ -10244,7 +10244,7 @@ CREATE TABLE `tag_product` (
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
-  `id_user` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL,
   `pseudo` varchar(50) DEFAULT NULL,
   `firstName` varchar(50) DEFAULT NULL,
   `name` varchar(50) DEFAULT NULL,
@@ -10261,7 +10261,7 @@ CREATE TABLE `users` (
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id_user`, `pseudo`, `firstName`, `name`, `birthday`, `email`, `password`, `pointFidelity`, `role`, `createAt`, `updateAt`) VALUES
+INSERT INTO `users` (`id`, `pseudo`, `firstName`, `name`, `birthday`, `email`, `password`, `pointFidelity`, `role`, `createAt`, `updateAt`) VALUES
 (1, 'Mitchael Gaywood', 'Mitchael', 'Gaywood', '0000-00-00', 'mgaywood0@chron.com', 'W7NSwpgd8au', 1, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (2, 'Corny Del Castello', 'Corny', 'Del Castello', '0000-00-00', 'cdel1@mysql.com', 'jlUC2rThygg', 2, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3, 'Cliff Beddoes', 'Cliff', 'Beddoes', '0000-00-00', 'cbeddoes2@sciencedirect.com', 'XDQQFdZ', 3, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -10586,7 +10586,7 @@ INSERT INTO `users` (`id_user`, `pseudo`, `firstName`, `name`, `birthday`, `emai
 (322, 'Kip Billin', 'Kip', 'Billin', '0000-00-00', 'kbillin8x@nasa.gov', 'PaB6Dp', 322, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (323, 'Horst Guitton', 'Horst', 'Guitton', '0000-00-00', 'hguitton8y@bandcamp.com', 'kGdpESaL4G', 323, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (324, 'Genvieve Baggaley', 'Genvieve', 'Baggaley', '0000-00-00', 'gbaggaley8z@scribd.com', 'f2vaxKDMNBY', 324, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
-INSERT INTO `users` (`id_user`, `pseudo`, `firstName`, `name`, `birthday`, `email`, `password`, `pointFidelity`, `role`, `createAt`, `updateAt`) VALUES
+INSERT INTO `users` (`id`, `pseudo`, `firstName`, `name`, `birthday`, `email`, `password`, `pointFidelity`, `role`, `createAt`, `updateAt`) VALUES
 (325, 'Cherise Tansey', 'Cherise', 'Tansey', '0000-00-00', 'ctansey90@nba.com', 'cdeocsbLDaM', 325, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (326, 'Lisette Clemetts', 'Lisette', 'Clemetts', '0000-00-00', 'lclemetts91@ebay.com', 'O7JrTeIcQ', 326, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (327, 'Glenine Steiner', 'Glenine', 'Steiner', '0000-00-00', 'gsteiner92@rediff.com', 'ef41hExZn1cm', 327, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -10911,7 +10911,7 @@ INSERT INTO `users` (`id_user`, `pseudo`, `firstName`, `name`, `birthday`, `emai
 (646, 'Madlin Baines', 'Madlin', 'Baines', '0000-00-00', 'mbaineshx@shinystat.com', 'GtvCGER4aa', 646, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (647, 'Aileen Braams', 'Aileen', 'Braams', '0000-00-00', 'abraamshy@tiny.cc', 'L9moKVvQ', 647, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (648, 'Estelle Juggins', 'Estelle', 'Juggins', '0000-00-00', 'ejugginshz@cnet.com', 'aUlXk6', 648, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
-INSERT INTO `users` (`id_user`, `pseudo`, `firstName`, `name`, `birthday`, `email`, `password`, `pointFidelity`, `role`, `createAt`, `updateAt`) VALUES
+INSERT INTO `users` (`id`, `pseudo`, `firstName`, `name`, `birthday`, `email`, `password`, `pointFidelity`, `role`, `createAt`, `updateAt`) VALUES
 (649, 'Kirbie Really', 'Kirbie', 'Really', '0000-00-00', 'kreallyi0@yale.edu', 'hfnRol', 649, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (650, 'Bonni Orris', 'Bonni', 'Orris', '0000-00-00', 'borrisi1@xing.com', 'SVK5DceauQ', 650, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (651, 'Jessy Peat', 'Jessy', 'Peat', '0000-00-00', 'jpeati2@pbs.org', 'nIPooNDn9xir', 651, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -11237,7 +11237,7 @@ INSERT INTO `users` (`id_user`, `pseudo`, `firstName`, `name`, `birthday`, `emai
 (971, 'Darcie Tomsen', 'Darcie', 'Tomsen', '0000-00-00', 'dtomsenqy@google.com.hk', 'E4TchDxo', 971, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (972, 'Clevie Flower', 'Clevie', 'Flower', '0000-00-00', 'cflowerqz@ox.ac.uk', 'cWMvi0', 972, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (973, 'Reg Karlqvist', 'Reg', 'Karlqvist', '0000-00-00', 'rkarlqvistr0@smh.com.au', 'VvCs4nX0hx', 973, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
-INSERT INTO `users` (`id_user`, `pseudo`, `firstName`, `name`, `birthday`, `email`, `password`, `pointFidelity`, `role`, `createAt`, `updateAt`) VALUES
+INSERT INTO `users` (`id`, `pseudo`, `firstName`, `name`, `birthday`, `email`, `password`, `pointFidelity`, `role`, `createAt`, `updateAt`) VALUES
 (974, 'Ellette Najafian', 'Ellette', 'Najafian', '0000-00-00', 'enajafianr1@weibo.com', 'zaIcgyJKib', 974, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (975, 'Maiga Dilon', 'Maiga', 'Dilon', '0000-00-00', 'mdilonr2@ucoz.com', 'yFPBF4Orr', 975, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (976, 'Yelena Hek', 'Yelena', 'Hek', '0000-00-00', 'yhekr3@i2i.jp', 'Ej6xe7KsWA', 976, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -11274,14 +11274,14 @@ INSERT INTO `users` (`id_user`, `pseudo`, `firstName`, `name`, `birthday`, `emai
 -- Index pour la table `address`
 --
 ALTER TABLE `address`
-  ADD PRIMARY KEY (`id_adresse`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `id_user` (`id_user`);
 
 --
 -- Index pour la table `category`
 --
 ALTER TABLE `category`
-  ADD PRIMARY KEY (`id_category`),
+  ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `name` (`name`),
   ADD KEY `id_category_1` (`id_category_1`);
 
@@ -11289,7 +11289,7 @@ ALTER TABLE `category`
 -- Index pour la table `commentary`
 --
 ALTER TABLE `commentary`
-  ADD PRIMARY KEY (`id_comment`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `id_user` (`id_user`),
   ADD KEY `id_product` (`id_product`);
 
@@ -11304,13 +11304,13 @@ ALTER TABLE `like_product`
 -- Index pour la table `media`
 --
 ALTER TABLE `media`
-  ADD PRIMARY KEY (`id_media`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `order`
 --
 ALTER TABLE `order`
-  ADD PRIMARY KEY (`id_order`),
+  ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id_payement` (`id_payement`),
   ADD UNIQUE KEY `numero` (`numero`),
   ADD KEY `id_user` (`id_user`),
@@ -11327,13 +11327,13 @@ ALTER TABLE `order_detail`
 -- Index pour la table `paiement`
 --
 ALTER TABLE `paiement`
-  ADD PRIMARY KEY (`id_payement`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `product`
 --
 ALTER TABLE `product`
-  ADD PRIMARY KEY (`id_product`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `id_category` (`id_category`),
   ADD KEY `id_user` (`id_user`);
 
@@ -11348,7 +11348,7 @@ ALTER TABLE `product_media`
 -- Index pour la table `tag`
 --
 ALTER TABLE `tag`
-  ADD PRIMARY KEY (`id_tag`),
+  ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `name` (`name`);
 
 --
@@ -11362,7 +11362,7 @@ ALTER TABLE `tag_product`
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id_user`),
+  ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
@@ -11373,43 +11373,43 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `address`
 --
 ALTER TABLE `address`
-  MODIFY `id_adresse` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
 
 --
 -- AUTO_INCREMENT pour la table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
 
 --
 -- AUTO_INCREMENT pour la table `commentary`
 --
 ALTER TABLE `commentary`
-  MODIFY `id_comment` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3001;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3001;
 
 --
 -- AUTO_INCREMENT pour la table `media`
 --
 ALTER TABLE `media`
-  MODIFY `id_media` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `order`
 --
 ALTER TABLE `order`
-  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `paiement`
 --
 ALTER TABLE `paiement`
-  MODIFY `id_payement` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id_product` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2001;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2001;
 
 --
 -- AUTO_INCREMENT pour la table `product_media`
@@ -11421,13 +11421,13 @@ ALTER TABLE `product_media`
 -- AUTO_INCREMENT pour la table `tag`
 --
 ALTER TABLE `tag`
-  MODIFY `id_tag` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
 
 --
 -- Contraintes pour les tables déchargées
@@ -11437,63 +11437,63 @@ ALTER TABLE `users`
 -- Contraintes pour la table `address`
 --
 ALTER TABLE `address`
-  ADD CONSTRAINT `address_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`);
+  ADD CONSTRAINT `address_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`);
 
 --
 -- Contraintes pour la table `category`
 --
 ALTER TABLE `category`
-  ADD CONSTRAINT `category_ibfk_1` FOREIGN KEY (`id_category_1`) REFERENCES `category` (`id_category`);
+  ADD CONSTRAINT `category_ibfk_1` FOREIGN KEY (`id_category_1`) REFERENCES `category` (`id`);
 
 --
 -- Contraintes pour la table `commentary`
 --
 ALTER TABLE `commentary`
-  ADD CONSTRAINT `commentary_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`),
-  ADD CONSTRAINT `commentary_ibfk_2` FOREIGN KEY (`id_product`) REFERENCES `product` (`id_product`);
+  ADD CONSTRAINT `commentary_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `commentary_ibfk_2` FOREIGN KEY (`id_product`) REFERENCES `product` (`id`);
 
 --
 -- Contraintes pour la table `like_product`
 --
 ALTER TABLE `like_product`
-  ADD CONSTRAINT `like_product_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`),
-  ADD CONSTRAINT `like_product_ibfk_2` FOREIGN KEY (`id_product`) REFERENCES `product` (`id_product`);
+  ADD CONSTRAINT `like_product_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `like_product_ibfk_2` FOREIGN KEY (`id_product`) REFERENCES `product` (`id`);
 
 --
 -- Contraintes pour la table `order`
 --
 ALTER TABLE `order`
-  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`),
-  ADD CONSTRAINT `order_ibfk_2` FOREIGN KEY (`id_payement`) REFERENCES `paiement` (`id_payement`),
-  ADD CONSTRAINT `order_ibfk_3` FOREIGN KEY (`id_adresse`) REFERENCES `address` (`id_adresse`);
+  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `order_ibfk_2` FOREIGN KEY (`id_payement`) REFERENCES `paiement` (`id`),
+  ADD CONSTRAINT `order_ibfk_3` FOREIGN KEY (`id_adresse`) REFERENCES `address` (`id`);
 
 --
 -- Contraintes pour la table `order_detail`
 --
 ALTER TABLE `order_detail`
-  ADD CONSTRAINT `order_detail_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `product` (`id_product`),
-  ADD CONSTRAINT `order_detail_ibfk_2` FOREIGN KEY (`id_order`) REFERENCES `order` (`id_order`);
+  ADD CONSTRAINT `order_detail_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `product` (`id`),
+  ADD CONSTRAINT `order_detail_ibfk_2` FOREIGN KEY (`id_order`) REFERENCES `order` (`id`);
 
 --
 -- Contraintes pour la table `product`
 --
 ALTER TABLE `product`
-  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`id_category`) REFERENCES `category` (`id_category`),
-  ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`);
+  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`id_category`) REFERENCES `category` (`id`),
+  ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`);
 
 --
 -- Contraintes pour la table `product_media`
 --
 ALTER TABLE `product_media`
-  ADD CONSTRAINT `product_media_ibfk_1` FOREIGN KEY (`id_media`) REFERENCES `media` (`id_media`),
-  ADD CONSTRAINT `product_media_ibfk_2` FOREIGN KEY (`id_product`) REFERENCES `product` (`id_product`);
+  ADD CONSTRAINT `product_media_ibfk_1` FOREIGN KEY (`id_media`) REFERENCES `media` (`id`),
+  ADD CONSTRAINT `product_media_ibfk_2` FOREIGN KEY (`id_product`) REFERENCES `product` (`id`);
 
 --
 -- Contraintes pour la table `tag_product`
 --
 ALTER TABLE `tag_product`
-  ADD CONSTRAINT `tag_product_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `product` (`id_product`),
-  ADD CONSTRAINT `tag_product_ibfk_2` FOREIGN KEY (`id_tag`) REFERENCES `tag` (`id_tag`);
+  ADD CONSTRAINT `tag_product_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `product` (`id`),
+  ADD CONSTRAINT `tag_product_ibfk_2` FOREIGN KEY (`id_tag`) REFERENCES `tag` (`id`);
 SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
 
