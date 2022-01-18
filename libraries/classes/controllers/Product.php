@@ -2,8 +2,11 @@
 
 namespace Controllers;
 
-class Liste extends Controller{
-    protected $modelName = "Liste";
+use Renderer;
+
+class Product extends Controller
+{
+    protected $modelName = "Product";
 
     public function index() {
 
@@ -11,5 +14,6 @@ class Liste extends Controller{
         $id_category = filter_input(INPUT_GET, 'id_category', FILTER_VALIDATE_INT);
 
         $liste = $this->model->findProductByCategory($id_category);
+        \Renderer::render('listes/listeproducts', []);
     }
 }

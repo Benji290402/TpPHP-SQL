@@ -1,5 +1,5 @@
 <h1>Nos articles</h1>
-
+<a href="index.php?controller=product&task=index">Laaaaaaaaaa</a>
 <?php foreach ($articles as $article) : ?>
     <h2><?= $article['title'] ?></h2>
     <small>Ecrit le <?= $article['created_at'] ?></small>

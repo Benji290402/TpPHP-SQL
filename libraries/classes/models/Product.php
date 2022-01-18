@@ -16,7 +16,7 @@ class Product extends Model
     protected $table = "product";
 
     /**
-     * Retourne la liste des commentaires pour un article donné
+     * Retourne la liste des produits pour un article donné
      *
      * @param integer $article_id
      *
@@ -24,12 +24,12 @@ class Product extends Model
      */
     public function findProductByCategory(int $id_category): array
     {
-        // 2. On récupère les commentaires
+        // 2. On récupère les produits
         $query = $this->pdo->prepare("SELECT * FROM product WHERE id_category = :id ORDER BY name ASC");
         $query->execute(['id' => $id_category]);
-        $commentaires = $query->fetchAll();
+        $produits = $query->fetchAll();
 
-        // 3. On retourne les commentaires
-        return $commentaires;
+        // 3. On retourne les produits
+        return $produits;
     }
 }
