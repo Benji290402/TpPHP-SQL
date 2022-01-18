@@ -36,4 +36,31 @@ class Users extends Controller
         \Renderer::render('users/search', compact('result', 'pageTitle'));
     }
 
+    // A vérifier
+    public function login()
+    {
+        $emailValue = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL); // name doit être => email dans le html
+        $passwordValue = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
+
+        $result = [];
+        if ($emailValue && $passwordValue) {
+            $result = $this->model->login($emailValue, $passwordValue);
+            // var_dump($result); die;
+            if ($result == true) {
+                \Http::redirect("index.php?controller=users&task=myPage");
+            } else {
+                // Afficher un message d'erreur
+            }
+        }
+        $pageTitle = "Connexion";
+        \Renderer::render('users/login', compact('result', 'pageTitle')); // page à afficher
+    }
+
+    // A faire
+    public function myPage()
+    {
+        $pageTitle = "Ma page";
+        \Renderer::render('users/myPage', compact('pageTitle'));
+    }
+
 }

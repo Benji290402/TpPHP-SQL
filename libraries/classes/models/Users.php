@@ -26,6 +26,15 @@ class Users extends Model // Sert à récupérer les données de la BDD et les t
         return $statement->fetchAll();
     }
 
-    // public function login() {}
+    // A vérifier
+    public function login(string $email = null, string $pass = null)
+    {
+        $sql = "SELECT * FROM {$this->table} WHERE email LIKE :email AND `password` LIKE :password";
+
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute(['email' => $email, 'password' => $pass]);
+
+        return $statement->fetchAll();
+    }
 
 }

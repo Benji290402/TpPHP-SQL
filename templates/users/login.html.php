@@ -1,18 +1,12 @@
-<h1>Nos Users</h1>
+<h2>Se connecter</h2></br>
 
-<!-- <?php foreach ($users as $user) : ?>
-    <h2><?= $user['pseudo'] ?></h2>
-    <p><?= $user['id'] ?></p>
-    <small>Créé le <?= $user['createAt'] ?></small>
-<?php endforeach ?> -->
+<form action="index.php?controller=users&task=login" method="post">
 
-<!-- <?php foreach ($users as $user) : ?>
-    <table>
-        <thead>
-            <tr>
-                <td><?= $user['pseudo'] ?></td>
-                <td><?= $user['email'] ?></td>
-            </tr>
-        </thead>
-    </table>
-<?php endforeach ?> -->
+    <input name="email" type="text" placeholder="email">
+    <input name="password" type="text" placeholder="password">
+
+    <input type="submit" value="Envoyer">
+</form></br>
+
+<p>Email : mgaywood0@chron.com</p>
+<p>Password : W7NSwpgd8au</p>
