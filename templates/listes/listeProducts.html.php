@@ -17,7 +17,7 @@
         <?php foreach ($liste as $produit) : ?>
         <!-- <p>Il y a  <?= $produit['id_product'] ?> de produit dans la catégorie <?= $category['name'] ?> </p> -->
         <tr>
-            <td><?= $produit['id_product'] ?></th>
+            <td><?= $produit['id'] ?></th>
             <td><?= $produit['name'] ?></th>
             <td><?= $produit['description'] ?></th>
             <td><?= $produit['price'] ?> €</th>
