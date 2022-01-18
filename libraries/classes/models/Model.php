@@ -73,7 +73,7 @@ abstract class Model
      *
      * @return void
      */
-    public function insert(array $data): void
+    public function insert(array $data): void // Si données automatiques (ID, date), mettre NULL
     {
         /**
          * On cherche à créer quelque chose qui ressemble à ça :

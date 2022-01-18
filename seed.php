@@ -2,7 +2,7 @@
 
 require('vendor/autoload.php');
 
-$pdo = new PDO('mysql:host=localhost;dbname=blogpoo;charset=utf8', 'root', '', [
+$pdo = new PDO('mysql:host=localhost;dbname=tpphp;charset=utf8', 'root', '', [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
 ]);
@@ -12,7 +12,7 @@ $commentQuery = $pdo->prepare("INSERT INTO comments SET article_id = :article_id
 
 $pdo->query('DELETE FROM articles; DELETE FROM comments;');
 
-$faker = Faker\Factory::create('fr_FR');
+// $faker = Faker\Factory::create('fr_FR');
 
 for ($a = 0; $a < 20; $a++) {
     $title = $faker->catchPhrase;
