@@ -1,5 +1,5 @@
 CREATE TABLE Users(
-   id_user BIGINT,
+   id_user BIGINT NOT NULL AUTO_INCREMENT,
    pseudo VARCHAR(50),
    firstName VARCHAR(50),
    name VARCHAR(50),
@@ -15,7 +15,7 @@ CREATE TABLE Users(
 );
 
 CREATE TABLE Paiement(
-   id_payement BIGINT,
+   id_payement BIGINT NOT NULL AUTO_INCREMENT,
    token VARCHAR(255),
    methode VARCHAR(50),
    status VARCHAR(50),
@@ -26,7 +26,7 @@ CREATE TABLE Paiement(
 );
 
 CREATE TABLE Media(
-   id_media BIGINT,
+   id_media BIGINT NOT NULL AUTO_INCREMENT,
    source TEXT,
    createdDate DATETIME,
    updateAt DATETIME,
@@ -34,7 +34,7 @@ CREATE TABLE Media(
 );
 
 CREATE TABLE Category(
-   id_category INT,
+   id_category INT NOT NULL AUTO_INCREMENT,
    name VARCHAR(255),
    id_category_1 INT,
    PRIMARY KEY(id_category),
@@ -43,7 +43,7 @@ CREATE TABLE Category(
 );
 
 CREATE TABLE Product(
-   id_product BIGINT,
+   id_product BIGINT NOT NULL AUTO_INCREMENT,
    name VARCHAR(50),
    price DECIMAL(15,2),
    description VARCHAR(50),
@@ -62,14 +62,14 @@ CREATE TABLE Product(
 );
 
 CREATE TABLE Tag(
-   id_tag INT,
+   id_tag INT NOT NULL AUTO_INCREMENT,
    name VARCHAR(255),
    PRIMARY KEY(id_tag),
    UNIQUE(name)
 );
 
 CREATE TABLE Commentary(
-   id_comment BIGINT,
+   id_comment BIGINT NOT NULL AUTO_INCREMENT,
    comment TEXT,
    id_user BIGINT NOT NULL,
    id_product BIGINT NOT NULL,
@@ -79,7 +79,7 @@ CREATE TABLE Commentary(
 );
 
 CREATE TABLE Address(
-   id_adresse INT,
+   id_adresse INT NOT NULL AUTO_INCREMENT,
    number INT,
    street VARCHAR(50),
    postal VARCHAR(50),
@@ -91,7 +91,7 @@ CREATE TABLE Address(
 );
 
 CREATE TABLE `order`(
-   id_order INT,
+   id_order INT NOT NULL AUTO_INCREMENT,
    createAt DATETIME,
    updateAt DATETIME,
    numero VARCHAR(50),
@@ -107,7 +107,7 @@ CREATE TABLE `order`(
 );
 
 CREATE TABLE product_media(
-   id_media BIGINT,
+   id_media BIGINT NOT NULL AUTO_INCREMENT,
    id_product BIGINT,
    PRIMARY KEY(id_media, id_product),
    FOREIGN KEY(id_media) REFERENCES Media(id_media),
