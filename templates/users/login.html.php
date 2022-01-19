@@ -5,8 +5,13 @@
     <input name="email" type="text" placeholder="email">
     <input name="password" type="text" placeholder="password">
 
-    <input type="submit" value="Envoyer">
-</form></br>
+    <input type="submit" value="Se connecter">
+</form>
 
-<p>Email : mgaywood0@chron.com</p>
-<p>Password : W7NSwpgd8au</p>
+<!--
+    Email : rdavion0@amazon.com
+    Password : IHl8pI5Ql
+
+    Email : eleyband1@elpais.com
+    Password : BQeuIDCcIOrq
+-->

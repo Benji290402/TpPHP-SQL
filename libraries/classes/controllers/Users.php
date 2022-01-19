@@ -41,13 +41,20 @@ class Users extends Controller
     {
         $emailValue = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL); // name doit être => email dans le html
         $passwordValue = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
+        $passwordValue = hash("sha512", $passwordValue); // Test
 
         $result = [];
         if ($emailValue && $passwordValue) {
             $result = $this->model->login($emailValue, $passwordValue);
             // var_dump($result); die;
             if ($result == true) {
-                \Http::redirect("index.php?controller=users&task=myPage");
+                if (count($result) != 0) {
+                    $_SESSION['user'] = $result[0];
+                    \Http::redirect("index.php?controller=users&task=myPage");
+                } else {
+                    \Http::redirect("index.php?controller=users&task=login"); // A changer par une vraie page d'erreur
+                }
+                
             } else {
                 // Afficher un message d'erreur
             }
@@ -56,11 +63,24 @@ class Users extends Controller
         \Renderer::render('users/login', compact('result', 'pageTitle')); // page à afficher
     }
 
-    // A faire
-    public function myPage()
+    public function myPage() // La déconnexion se fait en vidant la $_SESSION via une fonction existante
     {
-        $pageTitle = "Ma page";
-        \Renderer::render('users/myPage', compact('pageTitle'));
+        // Si le user n'est pas connecté, renvoie vers la page de connexion, sinon accède à ma page
+        if ($_SESSION['user']) {
+            $users = $this->model->findAll('id ASC');
+
+            $pageTitle = "Ma page";
+            \Renderer::render('users/myPage', compact('users', 'pageTitle'));
+        } else {
+            \Http::redirect("index.php?controller=users&task=login");
+        }
+    }
+
+    // Déconnexion
+    public function logout()
+    {
+        unset($_SESSION['user']);
+        \Http::redirect("index.php?controller=users&task=login");
     }
 
 }
