@@ -1,0 +1,11 @@
+insert into category (name) values ('dapibus');
+insert into category (name) values ('non');
+insert into category (name) values ('sagittis');
+insert into category (name) values ('odio');
+insert into category (name) values ('rutrum');
+insert into category (name) values ('donec');
+insert into category (name) values ('platea');
+insert into category (name) values ('bibendum');
+insert into category (name) values ('scelerisque');
+insert into category (name) values ('tincidunt');
+insert into category (name) values ('morbi');
