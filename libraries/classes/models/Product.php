@@ -22,18 +22,25 @@ class Product extends Model
      *
      * @return array
      */
-    public function findProductByCategory(int $id_category = null)
+    public function findAllProductByCategory(int $id_category)
     {
         // 2. On récupère les produits
         $query = $this->pdo->prepare("SELECT * FROM product WHERE id_category like :id ORDER BY name ASC");
         $query->execute(['id' => $id_category]);
         $produits = $query->fetchAll();
 
-       //$sql = "SELECT * FROM product WHERE id_category like :id_category ORDER BY name ASC";
-       //$statement = $this->pdo->prepare($sql);
-       //$statement->execute(['id_category' => $id_category]);
-       //return $statement->fetchAll();
-        // 3. On retourne les produits
+
         return $produits;
+    }
+    public function findAllWithCategory()
+    {
+            
+ 
+        $query = $this->pdo->prepare("SELECT p.name, p.description, p.price, c.name category, c.id id_category FROM product p INNER JOIN category c ON c.id=p.id_category");
+        
+        $query->execute();
+        $produits = $query->fetchAll();
+        return $produits;
+       
     }
 }
