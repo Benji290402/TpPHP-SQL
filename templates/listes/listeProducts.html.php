@@ -1,9 +1,21 @@
-<?php if (count($produits) === 0) : ?>
+<?php
+
+use Models\Model;
+
+if (count($produits) === 0) : ?>
     <p>Il n'y a pas de produits concernant cette catégorie !</p>
 <?php else : ?>
 <table>
     <thead>
+    <!-- <?php if(isset($_GET['search']) AND !empty($_GET['search'])){ 
+         $search = model->search();
+        }?>
+       <form method="GET">
+            <input type="search" name="search" placeholder="Recherche..." />
+            <input type="submit" value="Valider" />
+       </form> -->
         <tr>
+            <th>Img</th>
             <th>name</th>
             <th>description</th>
             <th>prix</th>
@@ -16,6 +28,7 @@
     <tb>
         <?php foreach ($produits as $produit) : ?>
         <tr>
+            <td><img src="<?=$produit['media']?>"/></td>
             <td><?= $produit['name'] ?></th>
             <td><?= $produit['description'] ?></th>
             <td><?= $produit['price'] ?> €</th>
@@ -27,5 +40,4 @@
     </tbody>
 </table>
 <?php endif ?>
-
 

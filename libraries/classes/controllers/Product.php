@@ -10,13 +10,8 @@ class Product extends Controller
 
     public function show() {
 
-        
         $produits = $this->model->findAllWithCategory();
-       //$getIdCate = filter_input(INPUT_GET, 'id_category', FILTER_VALIDATE_INT);
-       //$id_category=[];
-       //if ($getIdCate) {
-       //    $id_category = $this->model->findProductByCategory($getIdCate);
-       //}
+      
         \Renderer::render('listes/listeProducts', compact('produits'));
     }
 
@@ -25,11 +20,12 @@ class Product extends Controller
         
         $id_category = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
         $produits = $this->model->findAllProductByCategory($id_category);
-       //$getIdCate = filter_input(INPUT_GET, 'id_category', FILTER_VALIDATE_INT);
-       //$id_category=[];
-       //if ($getIdCate) {
-       //    $id_category = $this->model->findProductByCategory($getIdCate);
-       //}
+       
+        \Renderer::render('listes/listeProducts', compact('produits'));
+    }
+    public function showsearch() {
+        $titre = $this->model->search();
+
         \Renderer::render('listes/listeProducts', compact('produits'));
     }
 }

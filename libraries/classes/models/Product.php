@@ -36,11 +36,18 @@ class Product extends Model
     {
             
  
-        $query = $this->pdo->prepare("SELECT p.name, p.description, p.price, c.name category, c.id id_category FROM product p INNER JOIN category c ON c.id=p.id_category");
+        $query = $this->pdo->prepare("SELECT p.name, p.description, p.price, c.name category, c.id id_category, m.source media FROM product p INNER JOIN category c ON c.id=p.id_category INNER JOIN product_media pm ON pm.id_product = p.id INNER JOIN media m ON m.id=pm.id_media;");
         
         $query->execute();
         $produits = $query->fetchAll();
         return $produits;
        
     }
+  
+    // public function search(){
+        
+    //        $search = htmlspecialchars($_GET['search']);
+    //        $query = $this->pdo->prepare('SELECT name FROM product WHERE name LIKE "%'.$search.'%" ORDER BY DESC');
+    //        $titre =$query->fetchAll();
+    // }
 }
