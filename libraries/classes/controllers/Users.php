@@ -45,12 +45,15 @@ class Users extends Controller
         $emailValue = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
         $passwordValue = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
         $passwordVerify = filter_input(INPUT_POST, 'passwordVerify', FILTER_SANITIZE_SPECIAL_CHARS);
+
+        $birthDateValue = filter_input(INPUT_POST, 'birthDate'); // Voir si filtre nécessaire
     
         $result = [];
         if ($emailValue && $passwordValue && $passwordValue == $passwordVerify) {
+            var_dump($birthDateValue);
             $passwordValue = hash("sha512", $passwordValue);
             // var_dump($emailValue, $passwordValue, $passwordVerify);
-            $result = $this->model->register($pseudoValue, $firstName, $name, $emailValue, $passwordValue);
+            $result = $this->model->register($pseudoValue, $firstName, $name, $birthDateValue, $emailValue, $passwordValue);
             echo("user créé\n");
             // var_dump($result);
         }

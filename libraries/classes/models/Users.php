@@ -41,12 +41,12 @@ class Users extends Model // Sert à récupérer les données de la BDD et les t
     }
 
     // A vérifier
-    public function register(string $pseudo = null, string $firstName = null, string $name = null, string $email = null, string $pass = null)
+    public function register(string $pseudo = null, string $firstName = null, string $name = null, $birthDate = null, string $email = null, string $pass = null)
     {
         $createAt = date('Y-m-d H:i:s');
         // var_dump($createAt);
         // Il manque la date d'anniversaire
-        $sql = "INSERT INTO `users`(`id`, `pseudo`, `firstName`, `name`, `birthday`, `email`, `password`, `pointFidelity`, `createAt`, `updateAt`) VALUES ('', '$pseudo', '$firstName', '$name', '2022-01-12', '$email', '$pass', '0', '$createAt', '2022-01-23 20:30:21.000000')";
+        $sql = "INSERT INTO `users`(`id`, `pseudo`, `firstName`, `name`, `birthday`, `email`, `password`, `pointFidelity`, `createAt`, `updateAt`) VALUES ('', '$pseudo', '$firstName', '$name', '$birthDate', '$email', '$pass', '0', '$createAt', '2022-01-23 20:30:21.000000')";
         
         $statement = $this->pdo->prepare($sql);
         $statement->execute();
