@@ -37,11 +37,34 @@ class Users extends Controller
     }
 
     // A vérifier
+    public function register()
+    {
+        $pseudoValue = filter_input(INPUT_POST, 'pseudo', FILTER_SANITIZE_SPECIAL_CHARS);
+        $firstName = filter_input(INPUT_POST, 'firstName', FILTER_SANITIZE_SPECIAL_CHARS);
+        $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
+        $emailValue = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+        $passwordValue = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
+        $passwordVerify = filter_input(INPUT_POST, 'passwordVerify', FILTER_SANITIZE_SPECIAL_CHARS);
+    
+        $result = [];
+        if ($emailValue && $passwordValue && $passwordValue == $passwordVerify) {
+            $passwordValue = hash("sha512", $passwordValue);
+            // var_dump($emailValue, $passwordValue, $passwordVerify);
+            $result = $this->model->register($pseudoValue, $firstName, $name, $emailValue, $passwordValue);
+            echo("user créé\n");
+            // var_dump($result);
+        }
+    
+        $pageTitle = "Créer un compte complet";
+        \Renderer::render('users/register', compact('pageTitle'));
+    }
+
+    // Connexion
     public function login()
     {
         $emailValue = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL); // name doit être => email dans le html
         $passwordValue = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
-        $passwordValue = hash("sha512", $passwordValue); // Test
+        $passwordValue = hash("sha512", $passwordValue);
 
         $result = [];
         if ($emailValue && $passwordValue) {

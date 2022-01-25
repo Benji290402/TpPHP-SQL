@@ -2,6 +2,9 @@
 
 namespace Models;
 
+use DateTime;
+use DateTimeZone;
+
 /**
  * DANS CE FICHIER ON DEFINIT UNE CLASSE QUI AURA POUR BUT DE GERER LES DONNEES DES USERS
  * 
@@ -26,13 +29,37 @@ class Users extends Model // Sert à récupérer les données de la BDD et les t
         return $statement->fetchAll();
     }
 
-    // A vérifier
+    // Connexion
     public function login(string $email = null, string $pass = null)
     {
         $sql = "SELECT * FROM {$this->table} WHERE email LIKE :email AND `password` LIKE :password";
 
         $statement = $this->pdo->prepare($sql);
         $statement->execute(['email' => $email, 'password' => $pass]);
+
+        return $statement->fetchAll();
+    }
+
+    // A vérifier
+    public function register(string $pseudo = null, string $firstName = null, string $name = null, string $email = null, string $pass = null)
+    {
+        $createAt = date('Y-m-d H:i:s');
+        // var_dump($createAt);
+        // Il manque la date d'anniversaire
+        $sql = "INSERT INTO `users`(`id`, `pseudo`, `firstName`, `name`, `birthday`, `email`, `password`, `pointFidelity`, `createAt`, `updateAt`) VALUES ('', '$pseudo', '$firstName', '$name', '2022-01-12', '$email', '$pass', '0', '$createAt', '2022-01-23 20:30:21.000000')";
+        
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute();
+
+        return $statement->fetchAll();
+    }
+
+    public function test(string $email)
+    {
+        $sql = "INSERT INTO {$this->table}(`id`, `email`) VALUES ('', email LIKE :email)";
+        
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute(['email' => $email]);
 
         return $statement->fetchAll();
     }
