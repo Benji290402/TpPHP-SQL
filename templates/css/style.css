@@ -1,3 +1,88 @@
-h2{
-    color:red;
+body{
+    background: linear-gradient(#e66465, #9198e5);
+    margin: 0;
+}
+
+
+a{
+    color: black;
+    text-decoration: none;
+}
+main{
+    width: 70%;
+    margin: 0 15%;
+}
+header{
+    background-color: darkgray;
+    padding: 10px 15%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+#logo{
+    height: 80px;
+}
+#top{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 500px;
+    width: 100%;
+}
+#top>div{
+    height: 100%;
+}
+#top>div:last-child, #top>div:first-child{
+    width: 20%;
+}
+#center{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;     
+    width: 55%;
+}
+#center>div{
+    width: 100%;
+    height: 45%;
+}
+#categories{
+    display: flex;
+    flex-direction: column;
+}
+
+#user a{
+    color: black;
+    text-decoration: none;
+    font-size: 25px;
+}
+#avatar{
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    background-color: ivory;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.productList{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: 100px 0;
+    width: calc(100% - 50px);
+    background-color: azure;
+    padding: 25px;
+    border-radius: 15px;
+}
+.product{
+    width: 15%;
+}
+.product img{
+    width: 100%;
+    overflow: hidden;
+    object-fit: cover;
 }
