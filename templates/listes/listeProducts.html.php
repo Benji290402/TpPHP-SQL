@@ -8,7 +8,7 @@ if (count($produits) === 0) : ?>
 <table>
     <thead>
     <!-- <?php if(isset($_GET['search']) AND !empty($_GET['search'])){ 
-         $search = model->search();
+        // $search = model->search();
         }?>
        <form method="GET">
             <input type="search" name="search" placeholder="Recherche..." />
