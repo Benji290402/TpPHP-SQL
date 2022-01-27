@@ -5,7 +5,7 @@ class Application
     /**
      * @var string
      */
-    const DEFAULT_CONTROLLER = "Article";
+    const DEFAULT_CONTROLLER = "Users";
 
     /**
      * @var string

@@ -7,6 +7,8 @@
  * puis on va boucler dessus pour afficher chacun d'entre eux
  */
 
+session_start();
+
 require_once('libraries/autoload.php');
 
 Application::process();
