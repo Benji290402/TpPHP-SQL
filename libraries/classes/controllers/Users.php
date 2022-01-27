@@ -2,6 +2,8 @@
 
 namespace Controllers;
 
+use Http;
+
 // La table users :
 // id_user 	pseudo 	firstName 	name 	birthday 	email 	password 	pointFidelity 	role 	createAt 	updateAt
 
@@ -55,7 +57,9 @@ class Users extends Controller
             // var_dump($emailValue, $passwordValue, $passwordVerify);
             $result = $this->model->register($pseudoValue, $firstName, $name, $birthDateValue, $emailValue, $passwordValue);
             echo("user créé\n");
+            $this->model->login($emailValue, $passwordValue);
             // var_dump($result);
+            \Http::redirect("index.php?controller=users&task=login");
         }
     
         $pageTitle = "Créer un compte complet";
@@ -108,5 +112,18 @@ class Users extends Controller
         unset($_SESSION['user']);
         \Http::redirect("index.php?controller=users&task=login");
     }
+
+    // Modification des données personnelles
+
+    // public function modifyPseudo()
+    // {
+    //     $pseudoValue = filter_input(INPUT_POST, "modifyPseudo", FILTER_SANITIZE_SPECIAL_CHARS);
+
+    //     if ($_SESSION['users']) {
+    //         $this->model->modifyPseudo($pseudoValue); 
+    //         $pageTitle = "Ma page";
+    //         \Renderer::render('users/myPage', compact('users', 'pageTitle'));
+    //     }
+    // }
 
 }

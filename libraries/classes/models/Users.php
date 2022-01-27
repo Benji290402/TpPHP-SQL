@@ -44,9 +44,9 @@ class Users extends Model // Sert à récupérer les données de la BDD et les t
     public function register(string $pseudo = null, string $firstName = null, string $name = null, $birthDate = null, string $email = null, string $pass = null)
     {
         $createAt = date('Y-m-d H:i:s');
-        // var_dump($createAt);
-        // Il manque la date d'anniversaire
-        $sql = "INSERT INTO `users`(`id`, `pseudo`, `firstName`, `name`, `birthday`, `email`, `password`, `pointFidelity`, `createAt`, `updateAt`) VALUES ('', '$pseudo', '$firstName', '$name', '$birthDate', '$email', '$pass', '0', '$createAt', '2022-01-23 20:30:21.000000')";
+        $modifiedAt = $createAt;
+        
+        $sql = "INSERT INTO {$this->table}(`id`, `pseudo`, `firstName`, `name`, `birthday`, `email`, `password`, `pointFidelity`, `createAt`, `updateAt`) VALUES ('', '$pseudo', '$firstName', '$name', '$birthDate', '$email', '$pass', '0', '$createAt', '$modifiedAt')";
         
         $statement = $this->pdo->prepare($sql);
         $statement->execute();
@@ -54,14 +54,17 @@ class Users extends Model // Sert à récupérer les données de la BDD et les t
         return $statement->fetchAll();
     }
 
-    public function test(string $email)
-    {
-        $sql = "INSERT INTO {$this->table}(`id`, `email`) VALUES ('', email LIKE :email)";
-        
-        $statement = $this->pdo->prepare($sql);
-        $statement->execute(['email' => $email]);
+    // Modification des données personnelles
 
-        return $statement->fetchAll();
-    }
+    // A faire
+    // public function modifyPseudo(string $email = null, string $pass = null, string $pseudo = null)
+    // {
+    //     $sql = "SELECT * FROM {$this->table} WHERE email LIKE :email AND `password` LIKE :password";
+
+    //     $statement = $this->pdo->prepare($sql);
+    //     $statement->execute(['email' => $email, 'password' => $pass]);
+
+    //     $sql = "UPDATE {$this->table} SET `pseudo` = '$pseudo' WHERE `users`.`id` =  ";
+    // }
 
 }
