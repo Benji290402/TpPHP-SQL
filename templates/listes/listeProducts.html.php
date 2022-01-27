@@ -8,7 +8,7 @@ if (count($produits) === 0) : ?>
 <table>
     <thead>
     <!-- <?php if(isset($_GET['search']) AND !empty($_GET['search'])){ 
-        // $search = model->search();
+        //$search = model->search();
         }?>
        <form method="GET">
             <input type="search" name="search" placeholder="Recherche..." />
@@ -26,15 +26,24 @@ if (count($produits) === 0) : ?>
         </tr>
     </thead>
     <tb>
+            <!-- <?php if(!$_GET['id']): ?>
+                <h1><?= $produit['category'] ?></h1>
+            <?php endif?> -->
+
         <?php foreach ($produits as $produit) : ?>
         <tr>
+            <!-- <?php if(!$_GET['id']): ?> -->
             <td><img src="<?=$produit['media']?>"/></td>
+            <!-- <?php else: ?> -->
+            <td><img src="<?=$produit['media']?>"/></td>
+            <!-- <?php endif?> -->
             <td><?= $produit['name'] ?></th>
             <td><?= $produit['description'] ?></th>
             <td><?= $produit['price'] ?> €</th>
             <!-- <?php if(!$_GET['id']): ?> -->
-            <td><a href="index.php?controller=Product&task=showcat&id=<?= $produit['id_category'] ?>"><?= $produit['category'] ?></a></td>
+                <td><a href="index.php?controller=Product&task=showcat&id=<?= $produit['id_category'] ?>"><?= $produit['category'] ?></a></td>
             <!-- <?php endif?> -->
+
         </tr>
         <?php endforeach ?>
     </tbody>
