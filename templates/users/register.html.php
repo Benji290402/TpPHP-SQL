@@ -18,3 +18,4 @@
 
     <br><input type="submit" value="Créer un compte">
 </form>
+<a href="index.php?controller=users&task=login">Se connecter</a>
