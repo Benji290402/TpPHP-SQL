@@ -13,9 +13,10 @@ class HomePage extends Controller
         $categories = $this->model->getCategories();
         
         $elems = array($this->model->getRandomProducts(),$this->model->getRandomProducts(),$this->model->getRandomProducts(),$this->model->getRandomProducts(),$this->model->getRandomProducts());
-        // $products = $this->model->getRandomProducts();
+        $news = $this->model->getNews();
+        $promos = $this->model->getPromos();
 
         $pageTitle = "Accueil"; // Nom de la page
-        \Renderer::render("homePage/index", compact('categories', 'pageTitle','elems'));
+        \Renderer::render("homePage/index", compact('categories', 'pageTitle','elems','news','promos'));
     }
 }

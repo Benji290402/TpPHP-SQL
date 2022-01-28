@@ -7,8 +7,24 @@
             <?php endforeach ?>
         </div>
         <div id="center">
-            <div style="background-color:yellow"></div>
-            <div style="background-color:green"></div>
+            <div class="newsList">
+                <h3>Nouveautés :</h3>
+                <?php foreach ($news as $product): ?>
+                <div class="news">
+                    <img src="<?= $product['img']?>" alt="">
+                    <p><?= $product['name']?><br><?= $product['price']?> €</p>
+                </div>
+                <?php endforeach ?>
+            </div>
+            <div class="promoList">
+                <h3>Prix Réduits :</h3>
+                <?php foreach ($promos as $product): ?>
+                <div class="promos">
+                    <img src="<?= $product['img']?>" alt="">
+                    <p><?= $product['name']?><br><?= $product['price']?> €</p>
+                </div>
+                <?php endforeach ?>
+            </div>
         </div>
         <div style="background-color:purple"></div>
     </div>
