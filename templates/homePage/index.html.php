@@ -1,9 +1,8 @@
-<?php require("templates/components/header.html.php"); ?>
 <main>
     <div id="top">
-        <div id="categories" style="background-color:ivory">
+        <div id="categories">
             <?php foreach ($categories as $category): ?>
-                <a href="<?= $category['id'] ?>"><?= $category['name'] ?></a>
+                <a href="index.php?controller=product&task=display&id=<?= $category['id'] ?>"><?= $category['name'] ?></a>
             <?php endforeach ?>
         </div>
         <div id="center">
@@ -26,7 +25,7 @@
                 <?php endforeach ?>
             </div>
         </div>
-        <div style="background-color:purple"></div>
+        <div></div>
     </div>
     
     <?php foreach ($elems as $products): ?>
