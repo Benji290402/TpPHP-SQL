@@ -35,7 +35,10 @@ class Users extends Model // Sert à récupérer les données de la BDD et les t
         $sql = "SELECT * FROM {$this->table} WHERE email LIKE :email AND `password` LIKE :password";
 
         $statement = $this->pdo->prepare($sql);
-        $statement->execute(['email' => $email, 'password' => $pass]);
+        $statement->execute([
+            'email' => $email,
+            'password' => $pass
+        ]);
 
         return $statement->fetchAll();
     }
@@ -46,10 +49,17 @@ class Users extends Model // Sert à récupérer les données de la BDD et les t
         $createAt = date('Y-m-d H:i:s');
         $modifiedAt = $createAt;
         
-        $sql = "INSERT INTO {$this->table}(`id`, `pseudo`, `firstName`, `name`, `birthday`, `email`, `password`, `pointFidelity`, `createAt`, `updateAt`) VALUES ('', '$pseudo', '$firstName', '$name', '$birthDate', '$email', '$pass', '0', '$createAt', '$modifiedAt')";
+        $sql = "INSERT INTO {$this->table}(`pseudo`, `firstName`, `name`, `birthday`, `email`, `password`, `pointFidelity`) VALUES (:pseudo, :firstName, :name, :birthDate, :email, :pass')";
         
         $statement = $this->pdo->prepare($sql);
-        $statement->execute();
+        $statement->execute([
+            'pseudo' => $pseudo,
+            'firstName' => $firstName,
+            'name' => $name,
+            'birthDate' => $birthDate,
+            'email' => $email,
+            'pass' => $pass
+        ]);
 
         return $statement->fetchAll();
     }
