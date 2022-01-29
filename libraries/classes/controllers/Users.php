@@ -100,6 +100,7 @@ class Users extends Controller
             $users = $this->model->findAll('id ASC');
 
             $pageTitle = "Ma page";
+            
             \Renderer::render('users/myPage', compact('users', 'pageTitle'));
         } else {
             \Http::redirect("index.php?controller=users&task=login");

@@ -35,3 +35,7 @@ function toTop(){
     console.log("le chat");
     window.scrollTo(0,0);
 }
+
+function redirect(link){
+    window.location.href = "index.php?"+link;
+}
