@@ -49,7 +49,7 @@ class Users extends Model // Sert à récupérer les données de la BDD et les t
         $createAt = date('Y-m-d H:i:s');
         $modifiedAt = $createAt;
         
-        $sql = "INSERT INTO {$this->table}(`pseudo`, `firstName`, `name`, `birthday`, `email`, `password`, `pointFidelity`) VALUES (:pseudo, :firstName, :name, :birthDate, :email, :pass')";
+        $sql = "INSERT INTO {$this->table}(`pseudo`, `firstName`, `name`, `birthday`, `email`, `password`, `pointFidelity`) VALUES (:pseudo, :firstName, :name, :birthDate, :email, :pass)";
         
         $statement = $this->pdo->prepare($sql);
         $statement->execute([
