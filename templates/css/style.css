@@ -54,7 +54,7 @@ main{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 50%;
+    width: 48%;
 }
 #center>div{
     padding: 10px;
@@ -101,6 +101,9 @@ main{
     align-items: center;
     padding: 15px;
 }
+#topRight hr{
+    width: 90%;
+}
 #connexion{
     margin: 15px 0;
     width: 100%;
@@ -113,17 +116,44 @@ main{
     padding: 5px;
     margin: 5px;
     height: 100%;
-    border-radius: 15px;
+    border-radius: 50px;
     background-color: var(--white);
     font-size: 18px;
+    transition: all .15s linear;
 }
 #signup{
     background-color: var(--blue);
     color: var(--white);
 }
+#connexion>*:hover{
+    background-color: orangered;
+    color: black;
+    transition: all .15s linear;
+}
 
-#avatar{
+#lastOrders{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#lastOrders > .product{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: calc(100% - 20px);
+    background-color: wheat;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 20px 0;
+    cursor: pointer;
+}
+#lastOrders > .product > *{
+    width: 45%;
+}
+
+.avatar{
     width: 65%;
+    border-radius: 50%;
 }
 .guest-primary{
     fill: var(--green);
@@ -162,14 +192,14 @@ header{
     margin: 0;
 }
 
-#login-icon{
+.log-icon{
     height: 45px;
 }
-#login-in{
+.log-in{
     fill: var(--white);
     fill-opacity: 50%;
 }
-#login-arrow{
+.log-arrow{
     fill: var(--white);
 }
 
