@@ -25,7 +25,6 @@
                 <?php endforeach ?>
             </div>
         </div>
-        
         <div id="topRight">
             <?php if(isset($_SESSION['user'])){ ?>
                 <?php if($user['img']){?>

@@ -177,7 +177,7 @@ header{
 }
 
 #user{
-    width: 22%;
+    width: 24%;
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -193,14 +193,14 @@ header{
     margin: 0;
 }
 
-.log-icon{
+.icon{
     height: 45px;
 }
-.log-in{
+.color-primary{
     fill: var(--white);
     fill-opacity: 50%;
 }
-.log-arrow{
+.color-secondary{
     fill: var(--white);
 }
 
