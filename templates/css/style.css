@@ -1,3 +1,36 @@
-h2{
-    color:red;
+*{
+    left: 50%;
+}
+
+.login-title {
+    top: 25%;
+    margin-left: -4.5%;
+    position: absolute;
+}
+
+.login-redirection {
+    top: 50%;
+    margin-left: -4%;
+    position: absolute;
+}
+
+#login-email {
+    top: 35%;
+    margin-left: -5%;
+    position: absolute;
+    margin-top: 0;
+}
+
+#login-password {
+    top: 40%;
+    margin-left: -5%;
+    position: absolute;
+    margin-top: 0;
+}
+
+#login-button {
+    top: 45%;
+    margin-left: -3.6%;
+    position: absolute;
+    margin-top: 0;
 }
