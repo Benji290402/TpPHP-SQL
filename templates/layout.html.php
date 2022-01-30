@@ -8,6 +8,8 @@
     <title>MBC - <?= $pageTitle ?></title>
     <link rel="stylesheet" href="./templates/css/style.css">
     <script src="assets/js/HomePage.js" defer></script>
+    <script src="assets/js/scroll.js" defer></script>
+    <script src="https://kit.fontawesome.com/8ccb279da9.js" crossorigin="anonymous"></script>
 </head>
 
 <body>

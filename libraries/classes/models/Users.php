@@ -63,6 +63,16 @@ class Users extends Model // Sert à récupérer les données de la BDD et les t
 
         return $statement->fetchAll();
     }
+    
+    public function getUser(int $id): array
+    {
+        $sql = 'SELECT pseudo, img FROM users WHERE id= :id';
+
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute(['id' => $id]);
+
+        return $statement->fetchAll();
+    }
 
     // Modification des données personnelles
 

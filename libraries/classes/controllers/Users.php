@@ -80,7 +80,7 @@ class Users extends Controller
             if ($result == true) {
                 if (count($result) != 0) {
                     $_SESSION['user'] = $result[0];
-                    \Http::redirect("index.php?controller=users&task=myPage");
+                    \Http::redirect("index.php");
                 } else {
                     \Http::redirect("index.php?controller=users&task=login"); // A changer par une vraie page d'erreur
                 }
@@ -100,6 +100,7 @@ class Users extends Controller
             $users = $this->model->findAll('id ASC');
 
             $pageTitle = "Ma page";
+            
             \Renderer::render('users/myPage', compact('users', 'pageTitle'));
         } else {
             \Http::redirect("index.php?controller=users&task=login");
@@ -110,7 +111,7 @@ class Users extends Controller
     public function logout()
     {
         unset($_SESSION['user']);
-        \Http::redirect("index.php?controller=users&task=login");
+        \Http::redirect("index.php");
     }
 
     // Modification des données personnelles

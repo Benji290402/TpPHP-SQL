@@ -9,6 +9,8 @@ class HomePage extends Controller
 
     public function index()
     {
+        $userModel = new \Models\users;
+
         $categories = $this->model->getCategories();
         
         // liste des produits à afficher en bas
@@ -19,6 +21,14 @@ class HomePage extends Controller
         $promos = $this->model->getPromos();
 
         $pageTitle = "Accueil";
-        \Renderer::render("homePage/index", compact('categories', 'pageTitle','elems','news','promos'));
+        if(isset($_SESSION['user'])){
+            $lastOrders = $this->model->getLastOrders($_SESSION['user']['id']);
+            $resultat = $userModel->getUser($_SESSION['user']['id']);
+            $user = $resultat[0];
+
+            \Renderer::render("homePage/index", compact('categories', 'pageTitle','elems','news','promos','user','lastOrders'));
+        }else{
+            \Renderer::render("homePage/index", compact('categories', 'pageTitle','elems','news','promos'));
+        }
     }
 }
