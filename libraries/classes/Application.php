@@ -10,7 +10,7 @@ class Application
     /**
      * @var string
      */
-    const DEFAULT_TASK = "index";
+    const DEFAULT_TASK = "show";
 
     /**
      * Exécute l'action nécessaire sur le controller voulu
