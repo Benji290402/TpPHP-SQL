@@ -173,6 +173,7 @@ header{
     flex-wrap: nowrap;
     justify-content: space-between;
     width: 80%;
+    height: 80px;
 }
 
 #user{
@@ -250,3 +251,29 @@ header{
 }
 
 /* ============================================================================== */
+
+#searchForm{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 15px;
+    width: 40%;
+    justify-content: center;
+}
+#searchInput{
+    border: none;
+    border-radius: 10px 0 0 10px;
+    font-size: 25px;
+    width: calc(100% - 50px);
+}
+#search{
+    color: var(--blue);
+    height: 100%;
+    width: 50px;
+}
+#search svg{
+    padding: 10px;
+    height: calc(100% - 20px);
+    background-color: var(--white);
+    border-radius: 0 10px 10px 0;
+}
