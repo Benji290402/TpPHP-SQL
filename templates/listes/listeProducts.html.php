@@ -31,12 +31,8 @@ if (count($produits) === 0) : ?>
             <?php endif?> -->
 
         <?php foreach ($produits as $produit) : ?>
-        <tr>
-            <!-- <?php if(!$_GET['id']): ?> -->
+        <tr> 
             <td><img src="<?=$produit['media']?>"/></td>
-            <!-- <?php else: ?> -->
-            <td><img src="<?=$produit['media']?>"/></td>
-            <!-- <?php endif?> -->
             <td><?= $produit['name'] ?></th>
             <td><?= $produit['description'] ?></th>
             <td><?= $produit['price'] ?> €</th>
