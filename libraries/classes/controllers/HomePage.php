@@ -10,9 +10,9 @@ class HomePage extends Controller
     public function index()
     {
         $userModel = new \Models\users;
-        $productModel = $this->model;
+        $productModel = new \Models\product;
 
-        $categories = $this->model->getCategories();
+        $categories = $productModel->getCategories();
         
         // liste des produits à afficher en bas
         $elems = array($productModel->getRandomProducts(),$productModel->getRandomProducts(),$productModel->getRandomProducts(),$productModel->getRandomProducts(),$productModel->getRandomProducts());
@@ -24,10 +24,8 @@ class HomePage extends Controller
         $pageTitle = "Accueil";
         if(isset($_SESSION['user'])){
             $lastOrders = $productModel->getLastOrders($_SESSION['user']['id']);
-            $resultat = $userModel->getUser($_SESSION['user']['id']);
-            $user = $resultat[0];
 
-            \Renderer::render("homePage/index", compact('categories', 'pageTitle','elems','news','promos','user','lastOrders'));
+            \Renderer::render("homePage/index", compact('categories', 'pageTitle','elems','news','promos','lastOrders'));
         }else{
             \Renderer::render("homePage/index", compact('categories', 'pageTitle','elems','news','promos'));
         }

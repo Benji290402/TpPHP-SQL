@@ -11,7 +11,7 @@ class Users extends Controller
 {
     protected $modelName = "Users";
 
-    // A vérifier
+    // Afficher tous les users
     public function index()
     {
         /**
@@ -79,7 +79,9 @@ class Users extends Controller
             // var_dump($result); die;
             if ($result == true) {
                 if (count($result) != 0) {
-                    $_SESSION['user'] = $result[0];
+                    $_SESSION['user']['id'] = $result[0]['id'];
+                    $_SESSION['user']['pseudo'] = $result[0]['pseudo'];
+                    $_SESSION['user']['img'] = $result[0]['img'];
                     \Http::redirect("index.php");
                 } else {
                     \Http::redirect("index.php?controller=users&task=login"); // A changer par une vraie page d'erreur
@@ -113,18 +115,4 @@ class Users extends Controller
         unset($_SESSION['user']);
         \Http::redirect("index.php");
     }
-
-    // Modification des données personnelles
-
-    // public function modifyPseudo()
-    // {
-    //     $pseudoValue = filter_input(INPUT_POST, "modifyPseudo", FILTER_SANITIZE_SPECIAL_CHARS);
-
-    //     if ($_SESSION['users']) {
-    //         $this->model->modifyPseudo($pseudoValue); 
-    //         $pageTitle = "Ma page";
-    //         \Renderer::render('users/myPage', compact('users', 'pageTitle'));
-    //     }
-    // }
-
 }

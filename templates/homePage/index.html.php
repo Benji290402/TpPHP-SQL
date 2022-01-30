@@ -1,8 +1,8 @@
 <main>
     <div id="top">
-        <div id="categories">
+        <div class="categories">
             <?php foreach ($categories as $category): ?>
-                <a href="index.php?controller=product&task=display&id=<?= $category['id'] ?>"><?= $category['name'] ?></a>
+                <a href="index.php?controller=product&task=showByCat&id=<?= $category['id'] ?>"><?= $category['name'] ?></a>
             <?php endforeach ?>
         </div>
         <div id="center">
@@ -27,8 +27,8 @@
         </div>
         <div id="topRight">
             <?php if(isset($_SESSION['user'])){ ?>
-                <?php if($user['img']){?>
-                    <img class="avatar" src="<?=$user['img']?>" alt="avatar">
+                <?php if($_SESSION['user']['img']){?>
+                    <img class="avatar" src="<?=$_SESSION['user']['img']?>" alt="avatar">
                 <?php }else{?>
                     <svg class="avatar" viewBox="0 0 496 512">
                         <g>
@@ -38,7 +38,7 @@
                     </svg>
                 <?php }?>
 
-                <h2>Bonjour, <?=$user['pseudo']?></h2>
+                <h2>Bonjour, <?=$_SESSION['user']['pseudo']?></h2>
                 <hr>
                 <h3>Vos dernières commandes :</h3>
                 <?php if(count($lastOrders)>0){?>

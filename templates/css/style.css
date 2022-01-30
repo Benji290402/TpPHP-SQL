@@ -37,7 +37,7 @@ main{
     width: 100%;
 }
 
-#categories{
+.categories{
     display: flex;
     flex-direction: column;
     padding: 5px 25px;
@@ -46,7 +46,7 @@ main{
     border-radius: 0 0 15px 15px;
     background-color: var(--white);
 }
-#categories a{
+.categories a{
     padding: 10px 0;
 }
 
@@ -309,4 +309,67 @@ header{
     margin-left: -3.6%;
     position: absolute;
     margin-top: 0;
+}
+
+/* ============================================================================== */
+
+.productPage .productList{
+    flex-wrap:wrap;
+}
+.productPage{ 
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+.productPage .product {
+    width: 18%;
+    margin: 0 10px;
+}
+.productPage .categories {
+    margin: 0 10px 0 0;
+    border-radius: 0;
+}
+
+/* ============================================================================== */
+
+.cart{
+    width: 100%;
+    padding: 10px 35px 10px 35px;
+    border-radius: 0 0 15px 15px;
+    background-color: var(--white);
+}
+.list{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.list .cartProduct td:nth-child(1), .list .cartProduct td:nth-child(2){
+    cursor: pointer;
+    background-color: chartreuse;
+}
+.list .cartProduct{
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+.list .cartProduct img{
+    height: 100%;
+    overflow: hidden;
+    object-fit: cover;
+}
+.description{
+    flex-basis: 45%;
+}
+.prixU{
+    flex-basis: 10%;
+}
+.quantity{
+    flex-basis: 10%;
+}
+.total{
+    flex-basis: 10%;
 }
