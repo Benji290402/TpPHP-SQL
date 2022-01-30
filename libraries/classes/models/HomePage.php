@@ -44,7 +44,7 @@ class HomePage extends Model
         return $statement->fetchAll();
     }
 
-    public function getLastOrders(int $id): array
+    public function getLastOrders(int $id): array // Récupération des deux derniers produits achetés
     {
         $sql = 'SELECT p.name, m.source img, p.id idProduit FROM `order` o INNER JOIN order_detail od ON o.id=od.id_order INNER JOIN product p ON od.id_product=p.id INNER JOIN product_media pm ON p.id=pm.id_product INNER JOIN media m ON pm.id_media=m.id WHERE o.id_user=:id GROUP BY p.id ORDER BY o.createAt DESC LIMIT 2';
 

@@ -277,7 +277,7 @@ header{
     height: calc(100% - 20px);
     background-color: var(--white);
     border-radius: 0 10px 10px 0;
-
+}
 /* *{
     left: 50%;
 } */

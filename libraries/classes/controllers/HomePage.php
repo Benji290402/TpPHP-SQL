@@ -10,19 +10,20 @@ class HomePage extends Controller
     public function index()
     {
         $userModel = new \Models\users;
+        $productModel = $this->model;
 
         $categories = $this->model->getCategories();
         
         // liste des produits à afficher en bas
-        $elems = array($this->model->getRandomProducts(),$this->model->getRandomProducts(),$this->model->getRandomProducts(),$this->model->getRandomProducts(),$this->model->getRandomProducts());
+        $elems = array($productModel->getRandomProducts(),$productModel->getRandomProducts(),$productModel->getRandomProducts(),$productModel->getRandomProducts(),$productModel->getRandomProducts());
         // liste des derniers produits
-        $news = $this->model->getNews();
+        $news = $productModel->getNews();
         //  liste des prix réduits
-        $promos = $this->model->getPromos();
+        $promos = $productModel->getPromos();
 
         $pageTitle = "Accueil";
         if(isset($_SESSION['user'])){
-            $lastOrders = $this->model->getLastOrders($_SESSION['user']['id']);
+            $lastOrders = $productModel->getLastOrders($_SESSION['user']['id']);
             $resultat = $userModel->getUser($_SESSION['user']['id']);
             $user = $resultat[0];
 

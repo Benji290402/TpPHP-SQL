@@ -46,10 +46,7 @@ class Users extends Model // Sert à récupérer les données de la BDD et les t
     // A vérifier
     public function register(string $pseudo = null, string $firstName = null, string $name = null, $birthDate = null, string $email = null, string $pass = null)
     {
-        $createAt = date('Y-m-d H:i:s');
-        $modifiedAt = $createAt;
-        
-        $sql = "INSERT INTO {$this->table}(`pseudo`, `firstName`, `name`, `birthday`, `email`, `password`, `pointFidelity`) VALUES (:pseudo, :firstName, :name, :birthDate, :email, :pass)";
+        $sql = "INSERT INTO {$this->table}(`pseudo`, `firstName`, `name`, `birthday`, `email`, `password`) VALUES (:pseudo, :firstName, :name, :birthDate, :email, :pass)";
         
         $statement = $this->pdo->prepare($sql);
         $statement->execute([
