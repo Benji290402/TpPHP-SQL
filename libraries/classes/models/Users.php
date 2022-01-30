@@ -2,9 +2,6 @@
 
 namespace Models;
 
-use DateTime;
-use DateTimeZone;
-
 /**
  * DANS CE FICHIER ON DEFINIT UNE CLASSE QUI AURA POUR BUT DE GERER LES DONNEES DES USERS
  * 
@@ -14,6 +11,9 @@ use DateTimeZone;
 /**
  * Classe qui gère les données des articles
  */
+
+// `id`, `pseudo`, `firstName`, `name`, `birthday`, `email`, `password`, `pointFidelity`, `createAt`, `updateAt`
+
 class Users extends Model // Sert à récupérer les données de la BDD et les transmettre au controller
 {
     protected $table = "users";
