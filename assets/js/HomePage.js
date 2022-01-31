@@ -6,15 +6,11 @@ window.addEventListener('scroll', displayToTop)
 displayToTop();
 
 function sizeImgs(){
-    let products = document.querySelectorAll('.product>img');
+    let products = document.querySelectorAll('*[onclick] img');
     products.forEach(product => {
         product.style.height = product.getBoundingClientRect().width+"px"
     });
-    products = document.querySelectorAll('.news>img');
-    products.forEach(product => {
-        product.style.height = product.getBoundingClientRect().width+"px"
-    });
-    products = document.querySelectorAll('.promos>img');
+    products = document.querySelectorAll('#product img');
     products.forEach(product => {
         product.style.height = product.getBoundingClientRect().width+"px"
     });

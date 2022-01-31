@@ -8,7 +8,7 @@ class Cart extends Controller
     protected $modelName = "Cart";
 
     public function index() {
-        $pageTitle = "Panier";
+        $pageTitle = "Mon Panier";
         $productModel = new \Models\product;
 
         // Si utilisateur connecté, récupérer son panier

@@ -21,7 +21,6 @@ class Product extends Controller
         $produits = $this->model->findAllProductByCategory($id_category);
         $pageTitle = $this->model->getCategory($id_category);
         $categories = $this->model->getCategories();
-       
         \Renderer::render('product/index', compact('produits','pageTitle','categories'));
     }
     public function search() {
@@ -31,5 +30,12 @@ class Product extends Controller
         $categories = $this->model->getCategories();
 
         \Renderer::render('product/index', compact('produits','pageTitle','search','categories'));
+    }
+    public function display(){
+        $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+        $product = $this->model->getProduct($id)[0];
+        $pageTitle = $product['name'];
+
+        \Renderer::render('product/product', compact('product','pageTitle'));
     }
 }

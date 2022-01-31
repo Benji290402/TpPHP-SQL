@@ -1,3 +1,7 @@
+*[onclick]{
+    cursor: pointer;
+}
+
 html{
     --blue : #191970;
     --green : darkslategray;
@@ -145,7 +149,6 @@ main{
     border-radius: 15px;
     padding: 10px;
     margin: 20px 0;
-    cursor: pointer;
 }
 #lastOrders > .product > *{
     width: 45%;
@@ -182,7 +185,6 @@ header{
     align-items: center;
     flex-direction: row;
     justify-content: space-around;
-    cursor: pointer;
 }
 #user *{
     color: var(--white);
@@ -313,21 +315,24 @@ header{
 
 /* ============================================================================== */
 
-.productPage .productList{
+.productsPage .productList{
     flex-wrap:wrap;
+    margin: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
-.productPage{ 
+.productsPage{ 
     width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
 }
-.productPage .product {
+.productsPage .product {
     width: 18%;
     margin: 0 10px;
 }
-.productPage .categories {
+.productsPage .categories {
     margin: 0 10px 0 0;
     border-radius: 0;
 }
@@ -340,13 +345,15 @@ header{
     border-radius: 0 0 15px 15px;
     background-color: var(--white);
 }
+.cart h2{
+    text-align: center;
+}
 .list{
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 .list .cartProduct td:nth-child(1), .list .cartProduct td:nth-child(2){
-    cursor: pointer;
     background-color: chartreuse;
 }
 .list .cartProduct{
@@ -358,6 +365,7 @@ header{
 }
 .list .cartProduct img{
     height: 100%;
+    width: 150px;
     overflow: hidden;
     object-fit: cover;
 }
@@ -372,4 +380,45 @@ header{
 }
 .total{
     flex-basis: 10%;
+}
+/*---------------------------------------------------------------------------*/
+#product{ 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--white);
+    border-radius: 15px;
+    margin: 10px;
+    padding: 25px;
+}
+#product>div{ 
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+#product img{
+    width: 45%;
+    overflow: hidden;
+    object-fit: cover;
+    margin-right: 30px;
+}
+#product h3{
+    width: 100%;
+    text-align: center;
+}
+#mainProduct{
+    width: 50%;
+}
+.BtnCmd {
+   margin: 10px;
+   padding: 10px;
+   border-radius: 20px;
+   align-self: flex-end;
+   font-size: 25px;
+}
+.caracteristiques{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
 }

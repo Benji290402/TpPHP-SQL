@@ -52,17 +52,17 @@ class Users extends Controller
     
         $result = [];
         if ($emailValue && $passwordValue && $passwordValue == $passwordVerify) {
-            var_dump($birthDateValue);
+            
             $passwordValue = hash("sha512", $passwordValue);
-            // var_dump($emailValue, $passwordValue, $passwordVerify);
+            
             $result = $this->model->register($pseudoValue, $firstName, $name, $birthDateValue, $emailValue, $passwordValue);
-            echo("user créé\n");
+            
             $this->model->login($emailValue, $passwordValue);
-            // var_dump($result);
+            
             \Http::redirect("index.php?controller=users&task=login");
         }
     
-        $pageTitle = "Créer un compte complet";
+        $pageTitle = "Créer un compte";
         \Renderer::render('users/register', compact('pageTitle'));
     }
 

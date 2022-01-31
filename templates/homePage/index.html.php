@@ -9,7 +9,7 @@
             <div class="newsList">
                 <h3>Nouveautés :</h3>
                 <?php foreach ($news as $product): ?>
-                <div class="news">
+                <div class="news" onclick="goToProduct(<?=$product['id']?>)">
                     <img src="<?= $product['img']?>" alt="">
                     <p><?= $product['name']?><br><?= $product['price']?> €</p>
                 </div>
@@ -18,7 +18,7 @@
             <div class="promoList">
                 <h3>Prix Réduits :</h3>
                 <?php foreach ($promos as $product): ?>
-                <div class="promos">
+                <div class="promos" onclick="goToProduct(<?=$product['id']?>)">
                     <img src="<?= $product['img']?>" alt="">
                     <p><?= $product['name']?><br><?= $product['price']?> €</p>
                 </div>
@@ -71,7 +71,7 @@
     <?php foreach ($elems as $products): ?>
     <div class="productList">
         <?php foreach ($products as $product): ?>
-        <div class="product">
+        <div class="product" onclick="goToProduct(<?=$product['id']?>)">
             <img src="<?= $product['img']?>" alt="">
             <p><?= $product['name']?><br><?= $product['price']?> €</p>
         </div>
