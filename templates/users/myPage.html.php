@@ -1,5 +1,5 @@
 
-<main>
+<main id="mypage">
     <h1>Ma page</h1>
 
     <div>
@@ -11,7 +11,7 @@
         <p>Ma date de naissance : <?= $user['birthday'] ?></p>
     </div>
 
-    <div>
+    <div id="commands">
         <h2>Vos commandes</h2>
             <?php if(count($lastOrders)>0){?>
                 <div id="lastOrders" style="display: flex; flex-direction:row; flex-wrap: wrap; justify-content:center;">

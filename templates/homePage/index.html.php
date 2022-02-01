@@ -62,7 +62,7 @@
             </svg>
             <div id="connexion">
                 <button id="signup" onclick="window.location.href='index.php?controller=users&task=register'">S'inscrire</button>
-                <button id="login" onclick="window.location.href='index.php?controller=users&task=login'">Se Connecter</button>
+                <button id="btn-login" onclick="window.location.href='index.php?controller=users&task=login'">Se Connecter</button>
             </div>
             <?php } ?>
         </div>

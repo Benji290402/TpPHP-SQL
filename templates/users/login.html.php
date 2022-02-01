@@ -1,8 +1,8 @@
-<main>
-    <h2 class="login-title">Se connecter</h2></br>
+<main id="login">
 
     <form action="index.php?controller=users&task=login" method="post">
         <div class="login-form">
+            <h2 class="login-title">Se connecter</h2></br>
             <input id="login-email" name="email" type="text" placeholder="email">
             <input id="login-password" name="password" type="password" placeholder="password">
             <input id="login-button" type="submit" value="Se connecter">

@@ -5,12 +5,12 @@
 html{
     --blue : #191970;
     --green : darkslategray;
-    --white : azure;
+    --white : rgba(255,255,255,0.85);
     min-height: 100%;
     font-family: Arial, Helvetica, sans-serif;
 }
 body{
-    background: linear-gradient(#e66465, #9198e5);
+    background: url("https://www.bel-rive.com/wp-content/uploads/2018/12/fond-bleu.jpg");
     background-attachment: fixed;
     margin: 0;
     display: flex;
@@ -99,7 +99,7 @@ main{
 #topRight{
     width: calc(24% - 30px);
     border-radius: 0 0 15px 15px;
-    background: linear-gradient(#9198e5, #e66465);
+    background-color: var(--white);
     background-attachment: fixed;
     display: flex;
     flex-direction: column;
@@ -116,7 +116,7 @@ main{
     flex-direction: row;
     align-items: center;
 }
-#connexion>*{
+#connexion>*, #btn-login{
     width: 45%;
     padding: 5px;
     margin: 5px;
@@ -220,7 +220,7 @@ header{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: space-around;
     margin: 100px 0;
     width: calc(100% - 50px);
     background-color: var(--white);
@@ -288,36 +288,16 @@ header{
     border-radius: 0 10px 10px 0;
 }
 
-.login-title {
-    top: 25%;
-    margin-left: -4.5%;
-    position: absolute;
-}
-
-.login-redirection {
-    top: 50%;
-    margin-left: -4%;
-    position: absolute;
-}
 
 #login-email {
-    top: 35%;
-    margin-left: -5%;
-    position: absolute;
     margin-top: 0;
 }
 
 #login-password {
-    top: 40%;
-    margin-left: -5%;
-    position: absolute;
     margin-top: 0;
 }
 
 #login-button {
-    top: 45%;
-    margin-left: -3.6%;
-    position: absolute;
     margin-top: 0;
 }
 
@@ -473,4 +453,39 @@ header{
 .inputDiv{
     display: flex;
     flex-direction: column;
+}
+
+
+#login, #register, #mypage{
+    width: 50%;
+    background-color: var(--white);
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    margin-top: 25px;
+}
+#login form{
+    width: 23%;
+}
+#login form div{
+    display: flex;
+    flex-direction: column;
+}
+#login a, #register a{
+    text-align: center;
+    margin: 10px 0;
+}
+#login form div input{
+    margin: 10px 0;
+}
+#mypage{
+    width: 80%;
+}
+#mypage form{
+    margin: 25px;
+}
+#commands{
+    width: 95%;
 }
