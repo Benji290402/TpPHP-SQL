@@ -49,6 +49,7 @@ main{
     width: calc(22% - 50px);
     border-radius: 0 0 15px 15px;
     background-color: var(--white);
+    height: max-content;
 }
 .categories a{
     padding: 10px 0;
@@ -205,6 +206,13 @@ header{
 .color-secondary{
     fill: var(--white);
 }
+.negative-color-primary{
+    fill: var(--blue);
+    fill-opacity: 50%;
+}
+.negative-color-secondary{
+    fill: var(--blue);
+}
 
 /* ============================================================================== */
 
@@ -313,6 +321,8 @@ header{
     margin-top: 0;
 }
 
+
+
 /* ============================================================================== */
 
 .productsPage .productList{
@@ -334,7 +344,7 @@ header{
 }
 .productsPage .categories {
     margin: 0 10px 0 0;
-    border-radius: 0;
+    border-radius: 0 0 15px 15px;
 }
 
 /* ============================================================================== */
@@ -352,9 +362,6 @@ header{
     width: 100%;
     display: flex;
     flex-direction: column;
-}
-.list .cartProduct td:nth-child(1), .list .cartProduct td:nth-child(2){
-    background-color: chartreuse;
 }
 .list .cartProduct{
     height: 150px;
@@ -381,7 +388,23 @@ header{
 .total{
     flex-basis: 10%;
 }
+.trash{
+    flex-basis: 10%;
+    height: 45px;
+}
+.totalCart{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    width: 100%;
+}
+.totalCart > *{
+    margin: 50px;
+}
+
 /*---------------------------------------------------------------------------*/
+
 #product{ 
     width: 100%;
     display: flex;
@@ -419,6 +442,35 @@ header{
 }
 .caracteristiques{
     width: 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =================================================================== */
+
+#mainPayement{
+    width: calc(80% - 50px);
+    background-color: var(--white);
+    height: 100%;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#mainPayement form{
+    width: 60%;
+}
+#mainPayement form>div{
+    display: flex;
+    flex-direction: column;
+}
+#mainPayement form>div>div{
+    display: flex;
+    flex-direction: row;
+}
+.inputDiv{
     display: flex;
     flex-direction: column;
 }

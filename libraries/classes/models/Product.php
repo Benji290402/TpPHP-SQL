@@ -83,12 +83,14 @@ class Product extends Model
         return $statement->fetchAll();
     }
 
-    public function getLastOrders(int $id): array // Récupération des deux derniers produits achetés
+    public function getLastOrders(int $id, string $nb): array // Récupération des deux derniers produits achetés
     {
         $sql = 'SELECT p.name, m.source img, p.id idProduit FROM `order` o INNER JOIN order_detail od ON o.id=od.id_order INNER JOIN product p ON od.id_product=p.id INNER JOIN product_media pm ON p.id=pm.id_product INNER JOIN media m ON pm.id_media=m.id WHERE o.id_user=:id AND o.id_payement!=0 GROUP BY p.id ORDER BY o.createAt DESC LIMIT 2';
 
         $statement = $this->pdo->prepare($sql);
-        $statement->execute(['id' => $id]);
+        $statement->execute([
+            'id' => $id
+        ]);
 
         return $statement->fetchAll();
     }
@@ -116,20 +118,6 @@ class Product extends Model
         $statement->execute(['name'=>$name]);
 
         return $statement->fetchALL();
-    }
-
-    // Récupérer le panier
-    public function getOrder(int $id): array // Récupération des produits dans le panier
-    {
-        // order_detail :  id_product 	id_order 	quantity 	price
-        // order : id 	createAt 	updateAt 	numero 	id_user 	id_payement 	id_adresse
-
-        $sql = 'SELECT p.name, m.source img, p.id idProduit, p.price, od.quantity FROM `order` o INNER JOIN order_detail od ON o.id=od.id_order INNER JOIN product p ON od.id_product=p.id INNER JOIN product_media pm ON p.id=pm.id_product INNER JOIN media m ON pm.id_media=m.id WHERE o.id_user=:id AND o.id_payement = 0 GROUP BY p.id ORDER BY o.createAt DESC';
-
-        $statement = $this->pdo->prepare($sql);
-        $statement->execute(['id' => $id]);
-
-        return $statement->fetchAll();
     }
 
     public function getProduct(int $id): array // Récupération des deux derniers produits achetés

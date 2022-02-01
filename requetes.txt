@@ -1,0 +1,2 @@
+INSERT INTO order_detail(`id_product`, `id_order`) VALUES (1036,(SELECT o.id FROM `order` o INNER JOIN users u ON o.id_user=u.id WHERE u.id=1004 AND o.id_payement IS NULL))
+DELETE FROM order_detail WHERE id_product=556 AND id_order=(SELECT o.id FROM `order` o INNER JOIN users u ON o.id_user=u.id WHERE u.id=1004 AND o.id_payement IS NULL)

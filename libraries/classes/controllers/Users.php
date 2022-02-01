@@ -97,13 +97,15 @@ class Users extends Controller
 
     public function myPage() // La déconnexion se fait en vidant la $_SESSION via une fonction existante
     {
+        $productModel = new \Models\product;
         // Si le user n'est pas connecté, renvoie vers la page de connexion, sinon accède à ma page
         if ($_SESSION['user']) {
-            $users = $this->model->findAll('id ASC');
+            $user = $this->model->getUser($_SESSION['user']['id']);
+            $lastOrders = $productModel->getLastOrders($_SESSION['user']['id'],25);
 
             $pageTitle = "Ma page";
             
-            \Renderer::render('users/myPage', compact('users', 'pageTitle'));
+            \Renderer::render('users/myPage', compact('user', 'pageTitle','lastOrders'));
         } else {
             \Http::redirect("index.php?controller=users&task=login");
         }

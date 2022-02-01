@@ -23,7 +23,7 @@ class HomePage extends Controller
 
         $pageTitle = "Accueil";
         if(isset($_SESSION['user'])){
-            $lastOrders = $productModel->getLastOrders($_SESSION['user']['id']);
+            $lastOrders = $productModel->getLastOrders($_SESSION['user']['id'],2);
 
             \Renderer::render("homePage/index", compact('categories', 'pageTitle','elems','news','promos','lastOrders'));
         }else{
